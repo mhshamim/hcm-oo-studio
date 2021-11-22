@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operation id="3f819e47-73bd-43e9-8f98-4d7877f0e10c">
+  <descriptionCdata><![CDATA[3f819e47-73bd-43e9-8f98-4d7877f0e10c.description=<pre>This is an operation that does nothing.\n\nInputs\:\nNone\n\nResponses\:\nsuccess\nfailure\n</pre>
+]]></descriptionCdata>
+  <annotation>3f819e47-73bd-43e9-8f98-4d7877f0e10c.description</annotation>
+  <name>Scriptlet</name>
+  <categories/>
+  <inputs>
+    <staticBinding id="2e07158c-4c34-4759-974d-c4e1c10c4171">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>Field_1</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="8aa53aec-ced2-4886-89eb-890853d45571">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>Field_2</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="0f9ebf11-56a8-4ce8-8b6a-6be211ac2f65">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>Field_3</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="50695854-6529-44f5-aaf4-0e1383e153fd">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>Field_4</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="2cdb0efa-c8c5-468f-8a7b-aa57c9721fd8">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="0225da44-c1fb-454a-b487-be0cf007dba4">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="48c13a37-f96d-4a6d-9fce-b89f4ec3640a">
+    <annotation></annotation>
+    <name>returnCode</name>
+    <fieldName>returnCode</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="873c39a4-485c-4b60-af29-5c2860f247f7">
+    <baseIcon>text_code_javascript.png</baseIcon>
+    <basePath>/Others/</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <plugin>
+    <groupId>com.hp.oo</groupId>
+    <artifactId>oo-base-plugin</artifactId>
+    <version>1.19.0</version>
+    <actionName>noOp</actionName>
+  </plugin>
+  <fieldValues/>
+</operation>

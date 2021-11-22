@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow id="cb293914-0f64-4f2a-aa53-915335fd60ff">
+  <descriptionCdata><![CDATA[cb293914-0f64-4f2a-aa53-915335fd60ff.10c4858d-0f2b-4278-9e38-71ba6eaaba2d.prompt=${Code}\n${stdOut}
+cb293914-0f64-4f2a-aa53-915335fd60ff.817a5c66-3a46-4ae7-887c-98b9efbde24c.prompt=Protocol\: 
+cb293914-0f64-4f2a-aa53-915335fd60ff.d7feb18d-d79b-45fd-9966-a14437eb170a.prompt=Target host name\:
+cb293914-0f64-4f2a-aa53-915335fd60ff.e391c1e8-bfad-4ec9-adb3-0fec310a69f3.description=<pre>\nRuns a Ping command either locally or remotely depending on the specified protocol. Credentials and other inputs (remoteOS, hostname, username, password, keyFile etc) are required if the command must be run from a remote host. The Telnet protocol also requires inputs for usernamePrompt and passwordPrompt. \n\nInputs\:\n    hostname - Hostname or IP address of the host computer where the Ping command will be executed.\n    username - A username to authenticate to the host computer. \n    password - The password for the user account.\n    targetHost - Hostname or IP address of the target host computer.\n    protocol  - The protocol used to run the command.\nValues\: local, ssh, Telnet\n    packetSize - The size of the ping packet.\n    packetCount - The number of ping packets to send.\n    remoteOS - The operating system of the host computer (WINDOWS, LINUX, SOLARIS only are supported), if Ping is running on a remote host.\n    usernamePrompt - The username prompt seen while using Telnet protocol. This input is required when Telnet protocol is used. For example, login\:.\n    passwordPrompt - The password prompt seen while using Telnet protocol. This input is required when Telnet protocol is used. For example, password\:.\n    keyFile - The path to the private key file for remote host. The path should be absolute.\n    timeout - The timeout in miliseconds for the Ping operation. Default is 90000.-A inet6\n    ipVersion - IP version forced to the ping command executed on the target host. For Windows -4 or -6 parameters will be added.On Linux will be used ping or ping6. For Solaris -A inet or -A inet6 parameters will be added. For empty string the operation will decide what format to use if targetHost is an ip literal; if targetHost is given as a hostname default 'ping' command will be used on each operating system.\nValues\: 4, 6, '' (empty string without quotes).\nDefault\: '' (empty string without quotes).\n\nResponses\:\n    success - The command executed successfully.\n    failure - The command could not be executed or had a problem during execution.\n\nReturns\:\n    packetsSent - The number of packets sent.\n    packetsReceived - The number of packets received.\n    percentagePacketsLost - The percentage of packets lost.\n    transmissionTimeMin - Minimum time taken for transmitting the packet.\n    transmissionTimeMax - Maximum time taken for transmitting the packet.\n    transmissionTimeAvg - Average time taken for transmitting the packet.\n    returnResult - Raw output of the command.\n    returnCode - Return code of the executed command.\n    error - The STDERR of the command.\n</pre>
+]]></descriptionCdata>
+  <annotation></annotation>
+  <name>Access ReturnCode Raw Output and ErrorString</name>
+  <categories/>
+  <inputs/>
+  <possibleResponses>
+    <opResponse id="a2fde055-ed10-49d0-bcb3-999efad0dd98">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="b6f5d394-af49-4972-9592-4e4334611046">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="9c6cd0da-062e-40a6-849d-8929d99f6f1f">
+    <annotation></annotation>
+    <name>FailureMessage</name>
+    <fieldName>FailureMessage</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="c6e0cfd0-2b92-4862-920c-bb5dcd9cf149">
+    <baseIcon>flow.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <callouts/>
+  <checkPointFlow>true</checkPointFlow>
+  <compatibleRuntimeContext>false</compatibleRuntimeContext>
+  <historyCheckPointFlow>true</historyCheckPointFlow>
+  <steps>
+    <step id="e391c1e8-bfad-4ec9-adb3-0fec310a69f3">
+      <annotation>cb293914-0f64-4f2a-aa53-915335fd60ff.e391c1e8-bfad-4ec9-adb3-0fec310a69f3.description</annotation>
+      <name>Ping</name>
+      <bounds>
+        <x>149.0</x>
+        <y>48.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <scriptlet id="1ed512c8-014e-43cb-867e-01efdcd41760">
+        <annotation></annotation>
+        <name>Step Ping in Flow Access ReturnCode Raw Output and ErrorString (e391c1e8-bfad-4ec9-adb3-0fec310a69f3)</name>
+        <script>/* This scriptlet assigns the output returnCode to a variable named code,
+and the returnResult (standard output) of the operation to a variable
+named data. It then writes Code and stdOut as global flow variables
+and displays the result in the Resolved step
+*/
+
+code = parseInt(scriptletRawResult[&apos;returnCode&apos;]);
+data = scriptletRawResult[&apos;returnResult&apos;];
+scriptletContext.putGlobal(&quot;Code&quot;, code.toString());
+scriptletContext.putGlobal(&quot;stdOut&quot;,data);
+</script>
+        <type>NASHORN</type>
+      </scriptlet>
+      <bindings>
+        <userInputBinding id="d7feb18d-d79b-45fd-9966-a14437eb170a">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>targetHost</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>cb293914-0f64-4f2a-aa53-915335fd60ff.d7feb18d-d79b-45fd-9966-a14437eb170a.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+        <userInputBinding id="817a5c66-3a46-4ae7-887c-98b9efbde24c">
+          <annotation></annotation>
+          <toContextKey></toContextKey>
+          <fromContextKey></fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>protocol</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>cb293914-0f64-4f2a-aa53-915335fd60ff.817a5c66-3a46-4ae7-887c-98b9efbde24c.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <link>
+            <refId>6d065e03-2449-40fa-9a4b-a2f2a35a8d3d</refId>
+            <refName>Network - Protocols</refName>
+          </link>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+      </bindings>
+      <transitions>
+        <transition id="3affad97-0a81-4e19-b020-19b3de63a321">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>10c4858d-0f2b-4278-9e38-71ba6eaaba2d</refId>
+          </destination>
+          <source>
+            <refId>e391c1e8-bfad-4ec9-adb3-0fec310a69f3</refId>
+          </source>
+          <positions>
+            <point>
+              <x>199.0</x>
+              <y>82.0</y>
+            </point>
+            <point>
+              <x>436.0</x>
+              <y>84.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="171e376f-2da2-4fc3-96bd-163b98ebc36a">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>b221f3de-2994-495f-9723-58176d67e010</refId>
+          </destination>
+          <source>
+            <refId>e391c1e8-bfad-4ec9-adb3-0fec310a69f3</refId>
+          </source>
+          <positions>
+            <point>
+              <x>199.0</x>
+              <y>82.0</y>
+            </point>
+            <point>
+              <x>216.0</x>
+              <y>229.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>56c181bc-a763-435c-9561-4ba29d045c86</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="10c4858d-0f2b-4278-9e38-71ba6eaaba2d">
+      <annotation></annotation>
+      <name>Resolved : success</name>
+      <bounds>
+        <x>386.0</x>
+        <y>50.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>true</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt>cb293914-0f64-4f2a-aa53-915335fd60ff.10c4858d-0f2b-4278-9e38-71ba6eaaba2d.prompt</userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="2a6354e3-6dd9-450c-bfbe-e9dad118f757">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>10c4858d-0f2b-4278-9e38-71ba6eaaba2d</refId>
+          </destination>
+          <source>
+            <refId>10c4858d-0f2b-4278-9e38-71ba6eaaba2d</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties>
+        <entry>
+          <key>Prompt Title</key>
+          <modelValue id="af97c022-6f8e-4b78-bf7e-cc034fcc1136">
+            <doubleValue>0.0</doubleValue>
+            <stringValue>Local Ping command Return Code and Return Result</stringValue>
+            <encrypted>false</encrypted>
+            <type>9</type>
+          </modelValue>
+        </entry>
+      </properties>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments/>
+    </returnStep>
+    <returnStep id="b221f3de-2994-495f-9723-58176d67e010">
+      <annotation></annotation>
+      <name>Error : failure</name>
+      <bounds>
+        <x>166.0</x>
+        <y>195.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="9aeb7e3f-8058-4d21-a59c-fcf7e4a341aa">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>b221f3de-2994-495f-9723-58176d67e010</refId>
+          </destination>
+          <source>
+            <refId>b221f3de-2994-495f-9723-58176d67e010</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>ERROR</returnStepType>
+      <assignments/>
+    </returnStep>
+  </steps>
+  <startSteps>e391c1e8-bfad-4ec9-adb3-0fec310a69f3</startSteps>
+</flow>
