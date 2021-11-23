@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow id="204c0a26-9495-42eb-86f6-65077451847f">
+  <descriptionCdata><![CDATA[204c0a26-9495-42eb-86f6-65077451847f.94f6f4c9-df7e-4573-b18a-71175fc2ac1c.description=<pre>\n\nDisplays a message to the user.\n\nInputs\:\n  message - The message text to display\n  title - The title on the message window. Defaults to "Status message".\n\nResponses\:\n  Always returns success.\n\nExamples\:\n  In order to display the message "Finished" to the user, go to the \n  detail screen for the input named "message" and change the Otherwise option\n  from Prompt User to Use Constant.  Then enter the text "Finished" into the\n  Constant Value field.\n\n  References to flow variables in the Contant Value field are expanded so that\n  the text may be dynamic.  Flow variable references are of the form\n  ${variable}.  For example, the text\:\n     ${count} systems were modified \n  could be used to display a message about the number of systems that were\n  repaired, whose value is in the flow variable "count".\n\n  When the message is displayed, it will properly render any embedded html\n  tags, which permits creating messages with more advanced formatting.  For \n  example to display a message in italics you could use\:\n    <i>This is important</i>\n  or to display a message in red\:\n    <i>This is <span style\="color\: red">really </span> important</i>\n\n  You can create messages that contain multiple lines by entering a multiple\n  line message in the Constant Value field, or by using HTML <BR> tags for line\n  breaks.  Note that \\n characters are displayed literally and are not used for\n  creating multiple lines.\n\n</pre>\n
+204c0a26-9495-42eb-86f6-65077451847f.df5710da-68e5-4ce4-9393-1132b809f548.description=<pre>\nGet the details of an event.\n\nInputs\n\n  host\n      The host on which the event web service runs, which should be the Micro Focus\n      Business Service Management Gateway Server.  This can be a host name or an\n      IP address.  If a host name is used, it must be able to be resolved to an\n      IP address by a DNS server specified in your networking configuration.\n      The nslookup command, available in Windows and most unix variants, can be\n      used to verify that the given host name can be resolved.  This parameter\n      is required.\n\n   port\n      The port on which the event web service listens for requests, which is\n      normally 80 for http and 443 for https.  If this input is not specified,\n      then it will default to 80 or 443, depending on the value of the protocol\n      input.\n\n   protocol\n      The protocol which will be used to connect to the event web service\n      which is either http or https.  The default is https.\n\n   username\n      In the OMi model, each user has both a "user name" and a "login name",\n      which may differ.  This input should contain the OMi login name.  The name\n      of this input, "username", may be a bit confusing, but it is consistent\n      with other operations throughout Operations Orchestration which refer to\n      the user account that is used to authenticate with the remote system.\n\n   password\n      The password that will be used to connect to the event web service.\n\n   timeout\n      The length of time, in milliseconds, that are permitted to elapse before\n      timing out.  If the connection is not successfully made in this amount\n      if time, the service will give up and return with a failure.  If the\n      connection is made within this time, then this timeout value will be\n      the maximum amount of time that the operation will wait to receive a\n      reply.  If this value is not set or is set to 0, then the default value\n      of 60000 (one minute) will be used.\n\n   id\n      The event identifier, which is typically in UUID format, a string of\n      hexadecimal digis and dashes, for example\:\n      550e8400-e29b-41d4-a716-446655440000.\n\nResponses\n\n    success\n        The event was retrieved. \n\n    failure\n        There was some error in retrieving the event details.  The most common\n        errors are those due to an invalid combination of values in the inputs\n        to this operation (such as bad username/password values) or other errors\n        communicating with the event web service.  If the event id is not found,\n        an error will result.  In the event of a failure, the returnResult\n        output normally has more details about the nature of the failure.\n\nOutputs\n\n   returnResult\n      When the operation is successful, this will contain a brief message\n      stating that it was successful.  In the event of a failure, this will\n      contain details about the error.\n\n   application\n      The application that triggered the event\n\n   assignedGroup\n      The assigned group of the event\n\n   assignedUser\n      The login name of the user assigned to the event\n\n   category\n      The category of the event\n\n   description\n      The description of the event\n\n   duplicates\n      The count of duplicates of the event\n\n   eti\n      The Event Type Indicator\n\n   id\n      The id of the event, which will match\n\n   node\n      The node on which the event occurred\n\n   object\n      The object of the event\n\n   priority\n      The priority of the event.  Possible values are\: none, low, medium, high,\n      and highest.\n\n   severity\n      The severity of the event.  Possible values are\: unknown, normal, warning,\n      minor, major, and critical.\n\n   sourceCI\n      The source CI\n\n   state\n      The state of the event.  Possible values are\: open, in_progress, resolved,\n      and closed.\n\n   subcategory\n      The subcategory of the event\n\n   timeCreated\n      Time the event was created, in ISO 8601 format\n\n   timeReceived\n      Time the event was received by OMi, in ISO 8601 format\n\n   title\n      The title of the event\n\n</pre>\n\n
+]]></descriptionCdata>
+  <annotation></annotation>
+  <name>Get Event Information</name>
+  <categories/>
+  <inputs/>
+  <possibleResponses>
+    <opResponse id="ca05dc66-3059-4a4c-b4da-516b299e904e">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="24ad9ea2-e23d-43fb-9c33-3fdf14831ec5">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="0c8e03a7-d48d-406b-a52f-7cc5f918ca1e">
+    <annotation></annotation>
+    <name>FailureMessage</name>
+    <fieldName>FailureMessage</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="78be7f40-bda6-41d4-aae7-45af36df5305">
+    <baseIcon>flow.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <callouts/>
+  <checkPointFlow>true</checkPointFlow>
+  <compatibleRuntimeContext>false</compatibleRuntimeContext>
+  <historyCheckPointFlow>true</historyCheckPointFlow>
+  <steps>
+    <step id="df5710da-68e5-4ce4-9393-1132b809f548">
+      <annotation>204c0a26-9495-42eb-86f6-65077451847f.df5710da-68e5-4ce4-9393-1132b809f548.description</annotation>
+      <name>Get Event</name>
+      <bounds>
+        <x>153.0</x>
+        <y>62.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="20982bc4-f617-4e0f-ba5c-b76da68f5565">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>host</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>obm.advantageinc.mfswdemo.com</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="f51f2743-9821-40dc-97ce-774675da4da5">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>port</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>443</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="3208fb50-9fc6-43ad-bd74-aff8337e1378">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>protocol</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>https</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="5fbf0f5d-4f8c-4cfb-a420-3835adec9799">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>username</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>admin</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="1a613cff-eeda-486a-bdc9-1fce88d8c6b2">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>password</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}Sv3upS2pQ3wxnXZ7zq2alg==</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="aa1f37aa-d8ae-4834-b037-0fd5c8f46959">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>timeout</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="91d76628-1a44-403d-b2ae-9d66714bdc5f">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>id</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>8eb89fa0-f966-4627-85c0-0c284fcff606</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="85f3ef98-ee42-4707-a7b3-b098ffe01283">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>e098cf44-1e89-4dcc-83d7-5b95e666c4f0</refId>
+          </destination>
+          <source>
+            <refId>df5710da-68e5-4ce4-9393-1132b809f548</refId>
+          </source>
+          <positions>
+            <point>
+              <x>203.0</x>
+              <y>96.0</y>
+            </point>
+            <point>
+              <x>290.0</x>
+              <y>217.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="18a0e134-787b-422f-90bc-0e77e16dbd3f">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>94f6f4c9-df7e-4573-b18a-71175fc2ac1c</refId>
+          </destination>
+          <source>
+            <refId>df5710da-68e5-4ce4-9393-1132b809f548</refId>
+          </source>
+          <positions>
+            <point>
+              <x>203.0</x>
+              <y>96.0</y>
+            </point>
+            <point>
+              <x>398.0</x>
+              <y>74.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>9cdd9b7b-c824-41db-9eb4-1b1a42b2de37</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="db7a0c76-aa9f-4af3-b9e1-30e68eabd6ac">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>returnResult</contextKey>
+          <expression id="df77a6d9-5514-459b-84f6-636bd4ec99af">
+            <annotation></annotation>
+            <name>Result Field: returnResult</name>
+            <fieldName>returnResult</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="94b4f721-a065-4ec1-b92b-bc4ae9e31832">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>description</contextKey>
+          <expression id="da044bf8-3117-4748-925f-e9b1d98d5830">
+            <annotation></annotation>
+            <name>Result Field: description</name>
+            <fieldName>description</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="9ba0ac21-a4bf-4988-960a-66c48c3644ba">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>assignedUser</contextKey>
+          <expression id="44ec15e6-8400-46f4-9bf7-e8939022e77b">
+            <annotation></annotation>
+            <name>Result Field: assignedUser</name>
+            <fieldName>assignedUser</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="66209312-7df9-4d32-91c0-98d6d1040be6">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>severity</contextKey>
+          <expression id="f4627ca7-e721-4dd6-89af-b08f40994eb3">
+            <annotation></annotation>
+            <name>Result Field: severity</name>
+            <fieldName>severity</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="3fd4fe96-35dc-4662-a387-4ccaa82a03e0">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>relatedCI</contextKey>
+          <expression id="1d6dfafb-6aac-415b-a21e-d6a10f8d7716">
+            <annotation></annotation>
+            <name>Result Field: relatedCI</name>
+            <fieldName>relatedCI</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="94f6f4c9-df7e-4573-b18a-71175fc2ac1c">
+      <annotation>204c0a26-9495-42eb-86f6-65077451847f.94f6f4c9-df7e-4573-b18a-71175fc2ac1c.description</annotation>
+      <name>Display Message</name>
+      <bounds>
+        <x>348.0</x>
+        <y>40.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="3ac522e1-1701-4c3f-81e0-d06ea1f3918b">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>message</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>The following values were returned for event ID : ${id}
+
+Description : ${description}
+Severity : ${severity}
+Assigned User : ${assignedUser}
+Related CI : ${relatedCI}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="9316d123-aa03-4503-8be9-6314e07848f3">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>title</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>Status message</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="09c6f013-385b-4718-a7e7-bd26406ad5d3">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>58754772-7346-4c1b-a7ba-ea1f19537273</refId>
+          </destination>
+          <source>
+            <refId>94f6f4c9-df7e-4573-b18a-71175fc2ac1c</refId>
+          </source>
+          <positions>
+            <point>
+              <x>398.0</x>
+              <y>74.0</y>
+            </point>
+            <point>
+              <x>626.0</x>
+              <y>73.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>434e6fa2-26bc-4e84-9e1f-0aa6946cf920</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="58754772-7346-4c1b-a7ba-ea1f19537273">
+      <annotation></annotation>
+      <name>Resolved : success</name>
+      <bounds>
+        <x>576.0</x>
+        <y>39.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="9f53c091-e945-4133-bc63-e14440f8bf58">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>58754772-7346-4c1b-a7ba-ea1f19537273</refId>
+          </destination>
+          <source>
+            <refId>58754772-7346-4c1b-a7ba-ea1f19537273</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments/>
+    </returnStep>
+    <returnStep id="e098cf44-1e89-4dcc-83d7-5b95e666c4f0">
+      <annotation></annotation>
+      <name>Error : failure</name>
+      <bounds>
+        <x>240.0</x>
+        <y>183.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="928282a3-bfd2-4496-8728-703153800bd3">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>e098cf44-1e89-4dcc-83d7-5b95e666c4f0</refId>
+          </destination>
+          <source>
+            <refId>e098cf44-1e89-4dcc-83d7-5b95e666c4f0</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>ERROR</returnStepType>
+      <assignments/>
+    </returnStep>
+  </steps>
+  <startSteps>df5710da-68e5-4ce4-9393-1132b809f548</startSteps>
+</flow>

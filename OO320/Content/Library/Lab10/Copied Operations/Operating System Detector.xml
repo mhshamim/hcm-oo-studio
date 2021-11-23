@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operation id="c42702fe-7532-468e-bfd8-93951683b0e5">
+  <descriptionCdata><![CDATA[c42702fe-7532-468e-bfd8-93951683b0e5.6aec6e97-af7f-44a4-a545-c80bb7698329.prompt=Host\:
+c42702fe-7532-468e-bfd8-93951683b0e5.924fde7d-7185-44bf-a173-f713dfb63795.prompt=Password\:
+c42702fe-7532-468e-bfd8-93951683b0e5.cc83d3ec-d9d6-43c8-be5a-66b73cc0077d.prompt=Username\:
+c42702fe-7532-468e-bfd8-93951683b0e5.description=<pre> This operation detects the operating system that is running on the specified host.\n\nInputs\:\n    host - The host to connect to.\n    port - The port number.\nDefault value\: 22\n    username - The username to use when connecting.\n    password - The password to use when connecting.\n\nResults\:\n    returnResult - This is the primary output. It contains the name and the version of the operating system.\n    osName - The completely returned string of the OS name.\n    version - The operating systems version. For Unix systems, this result contains the kernel release version.\n    hostName - The host name that the remote computer reports for itself.\n    osArchitecture - The operating system architecture. This property is not available for Microsoft Windows Server 2003; in such cases, this result will be empty "".\nExamples\: 64-bit for Windows, x86_64 for Linux, i86pc for Solaris\n    fqdn - The fully qualified domain name (FQDN) of the target machine.\n    enterprise - Indicates whether the operating system is an enterprise edition\nValid values\: true, false\n    server - Indicates whether the operating system is a server edition\nValid values\: true, false\n    professional - Indicates whether the operating system is a professional edition.\nValid values\: true, false\n    standard - Indicates whether the operating system is a standard edition.\n\nResponses\:\n    windows - Remote host is running a version of Windows.\n    linux - Remote host is running Linux.\n    solaris - Remote host is running Solaris.\n    other unix - Remote host appears to be unix based, but is an unknown variant.\n    failure - System could not determine remote hosts operating system.\n\nNotes\:\n1. The enterprise, server, professional and standard results give more details about what version of Windows is detected and are always set to 'false' if a Unix system is being run.\n2. The operation returns the output of a "uname -a" for Unix based hosts, and the results of "osName" and "version WMI queries" for a Windows host.\n</pre>
+]]></descriptionCdata>
+  <annotation>c42702fe-7532-468e-bfd8-93951683b0e5.description</annotation>
+  <name>Operating System Detector</name>
+  <categories/>
+  <inputs>
+    <userInputBinding id="6aec6e97-af7f-44a4-a545-c80bb7698329">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>host</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>c42702fe-7532-468e-bfd8-93951683b0e5.6aec6e97-af7f-44a4-a545-c80bb7698329.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <staticBinding id="04acecb4-2fa1-46b7-99a6-d35b2a6e2435">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>port</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>22</value>
+      <record>false</record>
+    </staticBinding>
+    <userInputBinding id="cc83d3ec-d9d6-43c8-be5a-66b73cc0077d">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>username</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>c42702fe-7532-468e-bfd8-93951683b0e5.cc83d3ec-d9d6-43c8-be5a-66b73cc0077d.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="924fde7d-7185-44bf-a173-f713dfb63795">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>ENCRYPTED</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>password</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>c42702fe-7532-468e-bfd8-93951683b0e5.924fde7d-7185-44bf-a173-f713dfb63795.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="2a9ced51-8d22-404b-8492-26f531fce0a3">
+      <annotation></annotation>
+      <name>linux</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>NO_ACTION_TAKEN</type>
+      <matchRules>
+        <expression id="ac99e988-45e7-4a1a-8eaf-92d49f584cb4">
+          <annotation></annotation>
+          <name>returnCode</name>
+          <fieldName>returnCode</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="cea573d4-8fe9-4d8f-9269-c3e1683a7465">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>18</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>EXACT_MATCH</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="a079da95-960f-4257-bcce-4e0d75310b6a">
+      <annotation></annotation>
+      <name>solaris</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>NO_ACTION_TAKEN</type>
+      <matchRules>
+        <expression id="269049a9-555b-4edd-a64c-6f4a7c83a9b3">
+          <annotation></annotation>
+          <name>returnCode</name>
+          <fieldName>returnCode</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="b7f4aba9-a16e-4dad-a48c-ae31112d0acc">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>19</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>EXACT_MATCH</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="89c1e299-c067-442a-a9d3-cf09cfd96591">
+      <annotation></annotation>
+      <name>other unix</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>NO_ACTION_TAKEN</type>
+      <matchRules>
+        <expression id="65bc492c-14ad-482e-a361-87d40ff2b547">
+          <annotation></annotation>
+          <name>returnCode</name>
+          <fieldName>returnCode</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="857a2593-0b92-4bfd-8116-5f4052e3aaca">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>20</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>EXACT_MATCH</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="4f55444b-b102-45cf-94d2-ba72711c0a46">
+      <annotation></annotation>
+      <name>windows</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>NO_ACTION_TAKEN</type>
+      <matchRules>
+        <expression id="429ff4a7-0dc0-4560-b9fd-45623306aea6">
+          <annotation></annotation>
+          <name>returnCode</name>
+          <fieldName>returnCode</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="d9994b62-13b8-422f-9cc5-3e9afa9b856f">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>32</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>EXACT_MATCH</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="3f288ca7-bd4f-42da-8f8e-d1882f397592">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>ERROR</type>
+      <matchRules>
+        <expression id="8a085a06-3d79-4994-952c-de842ae60fb1">
+          <annotation></annotation>
+          <name>returnCode</name>
+          <fieldName>returnCode</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="b19ff4e6-5afc-45e1-a2b7-a1c03d3fcd5a">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>1</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>EXACT_MATCH</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="31e05c2c-dee0-49e0-9544-f3fd0242f9e8">
+    <annotation></annotation>
+    <name>returnCode</name>
+    <fieldName>returnResult</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="62609562-ca8a-4360-9d6f-2b16fe81458a">
+    <baseIcon>generic_server_plain.png</baseIcon>
+    <basePath>/Servers/</basePath>
+    <readOnly>false</readOnly>
+    <layers>
+      <iconSpec id="2be1af28-f9c1-4bbc-98b5-36e600faa6e6">
+        <baseIcon>view.png</baseIcon>
+        <basePath>/Annotations/</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+    </layers>
+  </iconSpec>
+  <opRef>
+    <refId>9e0b813b-764a-4c71-b0cf-12953a23fa07</refId>
+  </opRef>
+  <fieldValues/>
+  <groupAliasRef>
+    <refId>5233030c-af46-432b-a682-b326ca6bf2ae</refId>
+    <refName>RAS_Operator_Path</refName>
+  </groupAliasRef>
+  <overrideGroupAlias>${overrideNRAS}</overrideGroupAlias>
+</operation>

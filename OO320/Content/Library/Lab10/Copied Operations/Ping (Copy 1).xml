@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operation id="257c5136-fd78-41fd-8169-4971f81880e5">
+  <descriptionCdata><![CDATA[257c5136-fd78-41fd-8169-4971f81880e5.40b68b32-4d08-48ae-80bf-c4111cd5177c.prompt=Target host\:
+257c5136-fd78-41fd-8169-4971f81880e5.6b7ecb54-e585-413a-b44a-32bfd471b12f.prompt=Character Set\:
+257c5136-fd78-41fd-8169-4971f81880e5.c3686a17-2b27-4958-b028-d0c5a53249f6.prompt=Host\:
+257c5136-fd78-41fd-8169-4971f81880e5.c87cbadc-3cf3-4b05-9117-71cc9094747c.prompt=Network path for temporary files\:
+257c5136-fd78-41fd-8169-4971f81880e5.da4b0ad1-42bb-4ace-a5a5-9a06ca1a29e7.prompt=Username\:
+257c5136-fd78-41fd-8169-4971f81880e5.description=<pre>\nPings the target computer from a Windows host computer.\n\nInput Parameters\:\nhost \t\t- The hostname or IP address of the host computer to ping from.\nuser \t\t- Username to use for remote WMI impersonation and thread impersonation on the RAS host for this operation (can be left blank). The user to authenticate as.\npassword \t\t- Password of the user.\ntarget \t\t- The target computer to ping.\npackets \t\t- The number of packets to send to the target computer.\npacketSize \t\t- The size of packets to send to the target computer.\ncommand \t\t- DO NOT CHANGE THIS VALUE.\ncharacterSet \t- The character encoding of the target computer. The default is RAS machine's default encoding.\noutputPath \t\t- A network accessible path used by the operation to store temporary files. If not specified it points to \\\\host\\admin$\\temp\\'. If this path is not accessible it should be changed to use another share that the local system account on the host computer has write-access to. By default, the path must be changed on Windows 2000 computers.\n\nResponses\:\nsuccess \t\t- The target computer responded to all ping requests.\nfailure \t\t- The target computer did not respond to any ping request.\ndiagnosed\t\t- The target computer responded only to some ping requests.\nConnection Error\t- The host computer could not be found or user credentials supplied to connect to it are incorrect.\nUnknown Target\t- The target computer could not be resolved to an IP address.\n\nResult\:\nThe output of the ping operation.\n\nExtra Results\:\nreturnResult\t\t- The raw output of the Ping operation.\naddress \t\t- The actual IP address of the target computer.\n% Packet Loss \t- The percentage of packets that ping replies were not received for.\naverage latency\t- The average ping response time in milliseconds.\nmax latency \t\t- The maximum response time of all the ping reqeusts (in milliseconds).\nmin latency \t\t- The minimum number of milliseconds that was taken to receive a ping response.\n\nNote\: If an encoding is not given by user, the batch file will be created using the RAS machine's default encoding,\nThat may cause to corruption in a case where remote machine's encoding is different than the RAS machine's one.\nIn that case,user must define the appropriate 'characterSet'\nThe character encoding specified in the input for characterSet must not be Unicode (ex. UTF-8, UTF-16).\n</pre>
+257c5136-fd78-41fd-8169-4971f81880e5.ff61fa49-1c25-4b10-b9bf-8b7579098e46.prompt=Password\:
+]]></descriptionCdata>
+  <annotation>257c5136-fd78-41fd-8169-4971f81880e5.description</annotation>
+  <name>Ping (Copy 1)</name>
+  <categories/>
+  <inputs>
+    <userInputBinding id="c3686a17-2b27-4958-b028-d0c5a53249f6">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>host</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>257c5136-fd78-41fd-8169-4971f81880e5.c3686a17-2b27-4958-b028-d0c5a53249f6.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="da4b0ad1-42bb-4ace-a5a5-9a06ca1a29e7">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>user</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>257c5136-fd78-41fd-8169-4971f81880e5.da4b0ad1-42bb-4ace-a5a5-9a06ca1a29e7.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="ff61fa49-1c25-4b10-b9bf-8b7579098e46">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>ENCRYPTED</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>password</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>257c5136-fd78-41fd-8169-4971f81880e5.ff61fa49-1c25-4b10-b9bf-8b7579098e46.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="40b68b32-4d08-48ae-80bf-c4111cd5177c">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>target</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>257c5136-fd78-41fd-8169-4971f81880e5.40b68b32-4d08-48ae-80bf-c4111cd5177c.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <staticBinding id="f1d05bbc-549f-45c3-b8fb-d81c31a7aa4a">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>packets</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>4</value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="4e17b41d-3101-40a8-92b5-2898533873d7">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>packetSize</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>64</value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="b79f089b-4786-4a80-8c77-e0ca2230da5f">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>command</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>ping ${target} -n ${packets} -l ${packetSize}</value>
+      <record>false</record>
+    </staticBinding>
+    <userInputBinding id="6b7ecb54-e585-413a-b44a-32bfd471b12f">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>characterSet</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>257c5136-fd78-41fd-8169-4971f81880e5.6b7ecb54-e585-413a-b44a-32bfd471b12f.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="c87cbadc-3cf3-4b05-9117-71cc9094747c">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>outputPath</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>257c5136-fd78-41fd-8169-4971f81880e5.c87cbadc-3cf3-4b05-9117-71cc9094747c.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+  </inputs>
+  <scriptlet id="a2f99766-8a86-4b0f-8b11-1059a20288c3">
+    <annotation></annotation>
+    <name>Operation Ping (402950fb-cd2e-49ac-ab27-808df41f0537)</name>
+    <script>sErr = scriptletRawResult[&quot;StdErr&quot;];
+sOut = scriptletRawResult[&quot;StdOut&quot;];
+
+if (sErr.length &gt; 0)
+{
+   scriptletResult = sErr;
+   if (sErr != sOut)
+   {
+      scriptletResult = scriptletResult + sOut;
+   }
+}
+else
+{
+   scriptletResult = sOut;
+}</script>
+    <type>RHINO</type>
+  </scriptlet>
+  <possibleResponses>
+    <opResponse id="1021c06c-6b56-4d9d-8d4b-ac6d9061aaeb">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules>
+        <expression id="95da7381-4ebc-46f0-ab18-aba5f58aefb6">
+          <annotation></annotation>
+          <name></name>
+          <fieldName>returnCode</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="cc37b2b1-1d7a-4ade-abf4-1f2259523d06">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>0</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>EXACT_MATCH</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+        <expression id="62426336-1a11-42d5-a5a1-8f57bcf9dc8c">
+          <annotation></annotation>
+          <name>returnResult</name>
+          <fieldName>StdOut</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <compare id="2282a0cd-c752-4718-8636-359420355037">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>0%</text>
+            <matchType>=</matchType>
+          </compare>
+          <filters>
+            <regexFilter id="102637ce-9195-40ef-92cf-71cf0a990f97">
+              <annotation></annotation>
+              <name>RegularExpression</name>
+              <expression>\d+\%</expression>
+              <ignoreCase>false</ignoreCase>
+              <regType>JAVA</regType>
+              <entireString>true</entireString>
+              <multiLine>false</multiLine>
+            </regexFilter>
+          </filters>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="92c0f26c-ea09-4adf-bf40-dc30f625390b">
+      <annotation></annotation>
+      <name>diagnosed</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>DIAGNOSED</type>
+      <matchRules>
+        <expression id="58793f06-1d92-4c2a-a463-d75d9d9302aa">
+          <annotation></annotation>
+          <name>returnResult</name>
+          <fieldName>StdOut</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <compare id="46212ab6-4d4c-426c-842d-566449d11335">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>100%</text>
+            <matchType>&lt;</matchType>
+          </compare>
+          <filters>
+            <regexFilter id="a62b669a-6e27-4607-88b3-40c8425065c9">
+              <annotation></annotation>
+              <name>Regular Expression</name>
+              <expression>\d+\%</expression>
+              <ignoreCase>false</ignoreCase>
+              <regType>JAVA</regType>
+              <entireString>true</entireString>
+              <multiLine>false</multiLine>
+            </regexFilter>
+          </filters>
+        </expression>
+        <expression id="f2b36f7a-aaeb-4f1d-9ea7-b0fa933c1b38">
+          <annotation></annotation>
+          <name>exception</name>
+          <fieldName>StdOut</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <compare id="e2ffa16b-15ad-498c-b5bd-8c5fec9fd66f">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>0%</text>
+            <matchType>&gt;</matchType>
+          </compare>
+          <filters>
+            <regexFilter id="f76d8da8-3b80-4251-811f-fe4dd299def4">
+              <annotation></annotation>
+              <name>RegularExpression</name>
+              <expression>\d+\%</expression>
+              <ignoreCase>false</ignoreCase>
+              <regType>JAVA</regType>
+              <entireString>true</entireString>
+              <multiLine>false</multiLine>
+            </regexFilter>
+          </filters>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="4ab8a6aa-3da3-4e4c-864d-fd024044c4d2">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>true</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules>
+        <expression id="c741bceb-acc7-436e-b54f-62d8ff4bbf0e">
+          <annotation></annotation>
+          <name>exception</name>
+          <fieldName>StdOut</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <compare id="2100bca0-8731-45a6-8e70-394c15153565">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>100%</text>
+            <matchType>=</matchType>
+          </compare>
+          <filters>
+            <regexFilter id="f8ee3796-4994-4f54-ac36-1eaa9fb71380">
+              <annotation></annotation>
+              <name>Regular Expression</name>
+              <expression>\d+\%</expression>
+              <ignoreCase>false</ignoreCase>
+              <regType>JAVA</regType>
+              <entireString>true</entireString>
+              <multiLine>false</multiLine>
+            </regexFilter>
+          </filters>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="ba6ec0ba-6ddf-4f19-a1b7-829ae4d08f57">
+      <annotation></annotation>
+      <name>Unknown Target</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>ERROR</type>
+      <matchRules>
+        <expression id="c42b9507-084c-460f-a547-9314b4b2cef5">
+          <annotation></annotation>
+          <name>returnResult</name>
+          <fieldName>StdOut</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="8b798094-d6ff-4bb9-8d28-250be0cfea1f">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>Ping request could not find host ${target}</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>BEGINS_WITH</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+        <expression id="79d0e9bc-7ea1-442f-8eff-f2c7ce449e10">
+          <annotation></annotation>
+          <name>exception</name>
+          <fieldName>returnCode</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="211bdfae-dc73-48a6-a1b8-198013d70511">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>1</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>EXACT_MATCH</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="23bfdd70-a564-463e-8d27-60f1d78fbc32">
+      <annotation></annotation>
+      <name>Connection Error</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>ERROR</type>
+      <matchRules>
+        <expression id="02a9e81d-dbc2-49f9-9b1b-6d63fa1376df">
+          <annotation></annotation>
+          <name></name>
+          <fieldName>returnCode</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="e310bd0e-b1b4-4501-93f2-8f210cb253f3">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>1</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>EXACT_MATCH</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions>
+    <expression id="4c48229f-fb0c-446f-b7ed-9aca2ac8caeb">
+      <annotation></annotation>
+      <name>max latency</name>
+      <fieldName>StdOut</fieldName>
+      <sourceType>RAWRESULT</sourceType>
+      <filters>
+        <regexFilter id="3ed52613-b26a-4550-968b-71b96c091af0">
+          <annotation></annotation>
+          <name>RegularExpression</name>
+          <expression>Maximum\s*=\s*\d+\.*\d*\s*ms</expression>
+          <ignoreCase>false</ignoreCase>
+          <regType>JAVA</regType>
+          <entireString>true</entireString>
+          <multiLine>false</multiLine>
+        </regexFilter>
+        <regexFilter id="84b969f3-c3e8-4643-a0c9-dbf4416445d0">
+          <annotation></annotation>
+          <name>RegularExpression</name>
+          <expression>\d+\.*\d*</expression>
+          <ignoreCase>false</ignoreCase>
+          <regType>JAVA</regType>
+          <entireString>true</entireString>
+          <multiLine>false</multiLine>
+        </regexFilter>
+      </filters>
+    </expression>
+    <expression id="4c69a800-c53d-488a-8ed5-e2ddf49f07c5">
+      <annotation></annotation>
+      <name>% Packet Loss</name>
+      <fieldName>StdOut</fieldName>
+      <sourceType>RAWRESULT</sourceType>
+      <filters>
+        <regexFilter id="39ffb737-9658-4245-99c5-7e193c6bc78a">
+          <annotation></annotation>
+          <name>RegularExpression</name>
+          <expression>\d+\%</expression>
+          <ignoreCase>false</ignoreCase>
+          <regType>JAVA</regType>
+          <entireString>true</entireString>
+          <multiLine>false</multiLine>
+        </regexFilter>
+        <numberFilter id="2ae670fb-1a30-482e-a2ee-7bc0aa0af51f">
+          <annotation></annotation>
+          <name>Extract Number</name>
+        </numberFilter>
+      </filters>
+    </expression>
+    <expression id="476b0cd0-8761-4f15-b494-c750dbff56b3">
+      <annotation></annotation>
+      <name>address</name>
+      <fieldName>StdOut</fieldName>
+      <sourceType>RAWRESULT</sourceType>
+      <filters>
+        <scriptletFilter id="a7386e18-a5ca-4634-beb5-eefb14e81a55">
+          <annotation></annotation>
+          <name>Scriptlet</name>
+          <scriptlet id="42e96100-249e-455c-9ae3-589a746c11b6">
+            <annotation></annotation>
+            <name>default</name>
+            <script>var split = scriptletInput.split(&quot;\n&quot;);
+var out = new Array();
+var ip = scriptletInput.match(/(?:[a-f0-9]{0,4}:){2,7}[a-f0-9]{0,4}|\d+\.\d+\.\d+\.\d+/i);
+if (ip == null)
+    scriptletResult=&quot;&quot;;
+else
+    scriptletResult=ip.toString();
+
+if ((ip!=null) &amp;&amp;(ip.length &gt; 1))
+{
+ip = ip[0];
+for (count = 0; count &lt; split.length;count++){
+	if (split[count].toLowerCase().indexOf(&quot;reply from&quot;)==0){
+		var curr = split[count].match(/(?:[a-f0-9]{0,4}:){2,7}[a-f0-9]{0,4}|\d+\.\d+\.\d+\.\d+/i)[0];
+		if (curr == ip)
+			scriptletResult=ip.toString();
+	}	
+}
+}</script>
+            <type>RHINO</type>
+          </scriptlet>
+        </scriptletFilter>
+      </filters>
+    </expression>
+    <expression id="316dd51b-7865-4625-b18b-ca2654cb9c5c">
+      <annotation></annotation>
+      <name>min latency</name>
+      <fieldName>StdOut</fieldName>
+      <sourceType>RAWRESULT</sourceType>
+      <filters>
+        <regexFilter id="47550b5e-6fe0-4717-a44f-8a39dda44154">
+          <annotation></annotation>
+          <name>RegularExpression</name>
+          <expression>Minimum\s*=\s*\d+\.*\d*\s*ms</expression>
+          <ignoreCase>false</ignoreCase>
+          <regType>JAVA</regType>
+          <entireString>false</entireString>
+          <multiLine>true</multiLine>
+        </regexFilter>
+        <regexFilter id="9f37327e-a21a-4f3b-9065-5be949d5ac63">
+          <annotation></annotation>
+          <name>RegularExpression</name>
+          <expression>\d+\.*\d*</expression>
+          <ignoreCase>false</ignoreCase>
+          <regType>JAVA</regType>
+          <entireString>true</entireString>
+          <multiLine>false</multiLine>
+        </regexFilter>
+      </filters>
+    </expression>
+    <expression id="59d58d7b-a183-443f-9332-0cd8fdf99473">
+      <annotation></annotation>
+      <name>average lateny</name>
+      <fieldName>StdOut</fieldName>
+      <sourceType>RAWRESULT</sourceType>
+      <filters>
+        <regexFilter id="f42414b4-7821-4365-a0af-b36dfc4743cb">
+          <annotation></annotation>
+          <name>RegularExpression</name>
+          <expression>Average\s*=\s*\d+\.*\d*\s*ms</expression>
+          <ignoreCase>false</ignoreCase>
+          <regType>JAVA</regType>
+          <entireString>true</entireString>
+          <multiLine>false</multiLine>
+        </regexFilter>
+        <regexFilter id="8fd8aff9-db60-4765-8299-111c56e15101">
+          <annotation></annotation>
+          <name>RegularExpression</name>
+          <expression>\d+\.*\d*</expression>
+          <ignoreCase>false</ignoreCase>
+          <regType>JAVA</regType>
+          <entireString>true</entireString>
+          <multiLine>false</multiLine>
+        </regexFilter>
+      </filters>
+    </expression>
+  </availableResultExpressions>
+  <resultExpression id="8c423292-cb4c-4e82-b0f8-82dd057a6116">
+    <annotation></annotation>
+    <name>exception</name>
+    <fieldName>StdOut</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="5ece85fe-367f-449c-aea7-0313a0858b82">
+    <baseIcon>client_network.png</baseIcon>
+    <basePath>Networking/</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <opRef>
+    <refId>632830d9-d5be-47b3-9768-efa99decb443</refId>
+  </opRef>
+  <fieldValues/>
+  <groupAliasRef>
+    <refId>5233030c-af46-432b-a682-b326ca6bf2ae</refId>
+    <refName>RAS_Operator_Path</refName>
+  </groupAliasRef>
+  <overrideGroupAlias>${overrideNRAS}</overrideGroupAlias>
+</operation>

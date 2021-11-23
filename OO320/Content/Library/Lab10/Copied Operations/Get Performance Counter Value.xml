@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operation id="ea77af2a-0f4d-4f56-9bd7-4c1b1bdca219">
+  <descriptionCdata><![CDATA[ea77af2a-0f4d-4f56-9bd7-4c1b1bdca219.288de23a-ea3a-4e8f-b58e-91fb2660f021.prompt=Alternate Credentials - UserName\:
+ea77af2a-0f4d-4f56-9bd7-4c1b1bdca219.4586ebf2-1fc3-43c2-ab20-ae3490f04136.prompt=HostName\:
+ea77af2a-0f4d-4f56-9bd7-4c1b1bdca219.4b29132a-fc8f-4848-96b7-7dafcf3aa4d6.prompt=Counter\:
+ea77af2a-0f4d-4f56-9bd7-4c1b1bdca219.81f6a827-a428-40b7-a39f-c2de053f4fd6.prompt=Instance\:
+ea77af2a-0f4d-4f56-9bd7-4c1b1bdca219.93dcb82f-c078-44d8-8896-a86cd2ba2a4d.prompt=Object\:
+ea77af2a-0f4d-4f56-9bd7-4c1b1bdca219.a97eac9f-16ba-443c-85d4-0ae709972b2e.prompt=Alternate Credentials - Password\:
+ea77af2a-0f4d-4f56-9bd7-4c1b1bdca219.description=<pre>Retrieves the requested Windows Performance Counter Value.  Takes 5 samples in 1 second intervals and returns the average.\n\nInputs\:\nhost - Hostname or ip address of the target machine.\nobject - The counter object (ex. Processor).\ncounter - The counter's name (ex. % Processor Time).\ninstance - The instance of the counter (if applicable) (ex. _Total).\nuser - Username to use for thread impersonation on the RAS host for this operation (can be left blank).\npassword - Password of the user.\n\nResponses\:\nsuccess - Retrieved the counter successfully.\nfailure - Failed to retrieve the counter.\n\nExtra Results\:\nvalue - The actual value captured.\n\nNote\:\nThe performance counter whose value is to be retreived must be running on the target windows host.  The performance counter can be enabled using PerfMon.exe on the target host.\n</pre>
+]]></descriptionCdata>
+  <annotation>ea77af2a-0f4d-4f56-9bd7-4c1b1bdca219.description</annotation>
+  <name>Get Performance Counter Value</name>
+  <categories>
+    <category>
+      <refId>52a35ef3-32cc-4523-ae68-45de1dd8efdb</refId>
+      <refName>Windows OS</refName>
+    </category>
+  </categories>
+  <inputs>
+    <userInputBinding id="4586ebf2-1fc3-43c2-ab20-ae3490f04136">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>host</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>ea77af2a-0f4d-4f56-9bd7-4c1b1bdca219.4586ebf2-1fc3-43c2-ab20-ae3490f04136.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="93dcb82f-c078-44d8-8896-a86cd2ba2a4d">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>object</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>ea77af2a-0f4d-4f56-9bd7-4c1b1bdca219.93dcb82f-c078-44d8-8896-a86cd2ba2a4d.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="4b29132a-fc8f-4848-96b7-7dafcf3aa4d6">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>counter</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>ea77af2a-0f4d-4f56-9bd7-4c1b1bdca219.4b29132a-fc8f-4848-96b7-7dafcf3aa4d6.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="81f6a827-a428-40b7-a39f-c2de053f4fd6">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>instance</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>ea77af2a-0f4d-4f56-9bd7-4c1b1bdca219.81f6a827-a428-40b7-a39f-c2de053f4fd6.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="288de23a-ea3a-4e8f-b58e-91fb2660f021">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>user</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>ea77af2a-0f4d-4f56-9bd7-4c1b1bdca219.288de23a-ea3a-4e8f-b58e-91fb2660f021.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="a97eac9f-16ba-443c-85d4-0ae709972b2e">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>ENCRYPTED</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>password</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>ea77af2a-0f4d-4f56-9bd7-4c1b1bdca219.a97eac9f-16ba-443c-85d4-0ae709972b2e.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+  </inputs>
+  <scriptlet id="0616e0f5-12a2-44b2-ba19-47e6c6638954">
+    <annotation></annotation>
+    <name>Operation Get Performance Counter Value (c8b71c18-002d-4776-805e-cc873ef0b38e)</name>
+    <script>
+        	scriptletContext.put(&quot;value&quot;, scriptletRawResult[&apos;value&apos;]);
+        </script>
+    <type>RHINO</type>
+  </scriptlet>
+  <possibleResponses>
+    <opResponse id="35b1b8e0-68d0-4214-b0c3-b34e1f470483">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules>
+        <expression id="52297b42-5899-4358-9776-ca68d5e59531">
+          <annotation></annotation>
+          <name></name>
+          <fieldName>returnCode</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="dac38f9e-f8b2-4d81-8f45-b87a7064200f">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>0</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>EXACT_MATCH</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="55f789fe-2731-4a46-8e0b-ecd2511cc340">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>true</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules>
+        <expression id="c3a4831d-b6fa-4972-9266-04fdac98a283">
+          <annotation></annotation>
+          <name></name>
+          <fieldName>returnCode</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <containsEvaluator id="e786728e-9aa8-4c92-91c0-83c14811e6bc">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>1</text>
+            <ignoreCase>true</ignoreCase>
+            <matchType>EXACT_MATCH</matchType>
+          </containsEvaluator>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="84aeb1cc-f96e-4ca3-bd5d-2ca6be1f298b">
+    <annotation></annotation>
+    <name></name>
+    <fieldName>returnResult</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="e8d9eff2-f469-4476-96c1-b37e1efc40c4">
+    <baseIcon>gauge.png</baseIcon>
+    <basePath>Operating System/</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <opRef>
+    <refId>c8b71c18-002d-4776-805e-cc873ef0b38e</refId>
+  </opRef>
+  <fieldValues/>
+  <groupAliasRef>
+    <refId>5233030c-af46-432b-a682-b326ca6bf2ae</refId>
+    <refName>RAS_Operator_Path</refName>
+  </groupAliasRef>
+  <overrideGroupAlias>${overrideNRAS}</overrideGroupAlias>
+</operation>
