@@ -238,7 +238,7 @@
                 <annotation></annotation>
                 <name>Replace</name>
                 <ignoreCase>false</ignoreCase>
-                <searchString>&amp;gt</searchString>
+                <searchString>&amp;gt;</searchString>
                 <replaceString>&gt;</replaceString>
                 <replaceType>ALL</replaceType>
               </replaceAllFilter>
@@ -251,7 +251,7 @@
               <stripTrailingFilter id="bbbef2e6-3647-42f4-98ca-7ee27575292e">
                 <annotation></annotation>
                 <name>Strip</name>
-                <strip>&lt;/dwml</strip>
+                <strip>&lt;/dwml&gt;</strip>
                 <type>ALL_CHARACTERS_AFTER</type>
               </stripTrailingFilter>
               <xmlGetElementValueFilter id="7a490e39-18a2-4727-a849-b9cedb400899">
@@ -292,7 +292,7 @@
                 <annotation></annotation>
                 <name>Replace</name>
                 <ignoreCase>false</ignoreCase>
-                <searchString>&amp;gt</searchString>
+                <searchString>&amp;gt;</searchString>
                 <replaceString>&gt;</replaceString>
                 <replaceType>ALL</replaceType>
               </replaceAllFilter>
@@ -305,7 +305,7 @@
               <stripTrailingFilter id="ab8a1f9e-c79f-48f2-bb3e-4ad8c8418808">
                 <annotation></annotation>
                 <name>Strip</name>
-                <strip>&lt;/dwml</strip>
+                <strip>&lt;/dwml&gt;</strip>
                 <type>ALL_CHARACTERS_AFTER</type>
               </stripTrailingFilter>
               <xmlGetElementValueFilter id="38666b87-b019-451b-a9bf-3ecb75d140ec">
@@ -317,7 +317,7 @@
                 <annotation></annotation>
                 <name>Strip</name>
                 <strip>,</strip>
-                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+                <type>ALL_CHARACTERS_AFTER_AND_INCLUDING</type>
               </stripTrailingFilter>
             </filters>
           </expression>
@@ -411,7 +411,22 @@
       <opRef>
         <refId>f6135f78-c591-4d03-9a02-a2c5db75b1d8</refId>
       </opRef>
-      <assignments/>
+      <assignments>
+        <flowVariableAssignment id="d594dc88-8436-47ed-a84e-65b8a343da68">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>startDate</contextKey>
+          <expression id="e023d863-9304-4ef6-a11d-b4bf88896431">
+            <annotation></annotation>
+            <name>Result Field: startDate</name>
+            <fieldName>startDate</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
       <throttleSize>0</throttleSize>
     </step>
     <step id="4a9dba65-1cad-4c1e-90b6-83fd68426c90">
@@ -436,9 +451,9 @@
       <scriptResultStep>false</scriptResultStep>
       <userPrompt></userPrompt>
       <bindings>
-        <staticBinding id="ed840a90-1fa8-4f9f-a765-964492527ba2">
+        <staticBinding id="318b018e-5fcd-4a3c-8e26-8e71f6006703">
           <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
+          <assignFromContext>true</assignFromContext>
           <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
           <isList>false</isList>
@@ -449,9 +464,9 @@
           <value>${SP_Us_Weather_Service_WebService_Host}</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="b687cd46-c096-4670-bfb1-8767ce31ea12">
+        <staticBinding id="c5796e7d-28f4-4f1d-aea7-a4dded5d8b64">
           <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
+          <assignFromContext>true</assignFromContext>
           <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
           <isList>false</isList>
@@ -474,9 +489,9 @@
           <listDelimiter>,</listDelimiter>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="758dab84-e434-4254-aae4-f0875b48b0dd">
+        <staticBinding id="82abf487-293b-41e6-b9af-73c672094027">
           <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
+          <assignFromContext>true</assignFromContext>
           <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
           <isList>false</isList>
@@ -487,9 +502,9 @@
           <value>${SP_Us_Weather_Service_Proxy_Host}</value>
           <record>false</record>
         </staticBinding>
-        <staticBinding id="96f0f4fb-4071-48c5-b5a1-c6e50e7e4b86">
+        <staticBinding id="c13148bf-8937-4b2c-b7f4-b500c79a2321">
           <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
+          <assignFromContext>true</assignFromContext>
           <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
           <isList>false</isList>
@@ -510,6 +525,7 @@
           <isPersisted>false</isPersisted>
           <inputSymbol>NDFDgenByDay.Unit</inputSymbol>
           <listDelimiter>,</listDelimiter>
+          <value>e</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="79b28297-f169-4131-affc-52df4fdfdd5e">
@@ -522,12 +538,15 @@
           <isPersisted>false</isPersisted>
           <inputSymbol>NDFDgenByDay.format</inputSymbol>
           <listDelimiter>,</listDelimiter>
+          <value>24 hourly</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="da5de75b-3b98-42c8-a786-5b8aa52115df">
           <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
+          <toContextKey>Latitude</toContextKey>
+          <fromContextKey>Latitude</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>true</assignToContext>
           <inputType>STRING</inputType>
           <isList>false</isList>
           <required>false</required>
@@ -538,8 +557,10 @@
         </staticBinding>
         <staticBinding id="a4119242-6ff8-4d9f-8a90-746a848c9442">
           <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
+          <toContextKey>Longitude</toContextKey>
+          <fromContextKey>Longitude</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>true</assignToContext>
           <inputType>STRING</inputType>
           <isList>false</isList>
           <required>false</required>
@@ -558,12 +579,14 @@
           <isPersisted>false</isPersisted>
           <inputSymbol>NDFDgenByDay.numDays</inputSymbol>
           <listDelimiter>,</listDelimiter>
+          <value>1</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="42bd8815-1d68-4a5f-bb26-979027c5212d">
           <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
-          <assignToContext>false</assignToContext>
+          <fromContextKey>startDate</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>true</assignToContext>
           <inputType>STRING</inputType>
           <isList>false</isList>
           <required>false</required>
@@ -637,7 +660,158 @@
       <opRef>
         <refId>a080a3cd-aaa7-48bf-9ed4-ed528b1c1128</refId>
       </opRef>
-      <assignments/>
+      <assignments>
+        <flowVariableAssignment id="abdc6c43-12f7-4733-82cc-c76056465614">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>summary</contextKey>
+          <expression id="cdf9f6c3-3348-4741-911c-d4414947b0be">
+            <annotation></annotation>
+            <name>Result Field: dwmlByDayOut</name>
+            <fieldName>dwmlByDayOut</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <replaceAllFilter id="ea150121-35a6-433d-89d7-a77e8939b163">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>&amp;lt;</searchString>
+                <replaceString>&lt;</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="1d6c28e6-c130-4754-8586-03a45169ee89">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>&amp;gt;</searchString>
+                <replaceString>&gt;</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="e036753d-490a-4bf4-a67a-25d0b3e2176d">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>&amp;quot;</searchString>
+                <replaceString>&apos;</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <xpathFilter id="4c8949fd-8f8a-40ca-833f-b32328bb8e32">
+                <annotation></annotation>
+                <name>XPath Query</name>
+                <xpathQuery>//@weather-summary</xpathQuery>
+              </xpathFilter>
+              <stripTrailingFilter id="132c5353-8fb0-43f6-86a5-f88341bb7b07">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>&quot;</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="1329631c-0d15-4a84-adeb-da9755c4d0a9">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>&quot;</strip>
+                <type>ALL_CHARACTERS_AFTER_AND_INCLUDING</type>
+              </stripTrailingFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="15f06de6-1148-45f1-bfd5-32dcd8a3ac20">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>precipPct</contextKey>
+          <expression id="631d6c6c-4e4c-47d3-8be9-267096c9156f">
+            <annotation></annotation>
+            <name>Result Field: dwmlByDayOut</name>
+            <fieldName>dwmlByDayOut</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <replaceAllFilter id="1164d6c5-6834-4b06-9820-a5243fb60f90">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>&amp;lt;</searchString>
+                <replaceString>&lt;</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="734f5e58-7109-4480-a634-47f84a8cd4c3">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>&amp;gt;</searchString>
+                <replaceString>&gt;</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="d97c18d3-a7cc-494a-aebd-336ed8f9c009">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>&amp;quot;</searchString>
+                <replaceString>&apos;</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <xmlGetElementValueFilter id="8acc53d8-720b-4882-83b2-ed184c33251b">
+                <annotation></annotation>
+                <name>XML Get Element Value</name>
+                <elementPath>/dwml/data/parameters/probability-of-precipitation/value</elementPath>
+              </xmlGetElementValueFilter>
+              <stripTrailingFilter id="67a3a2ad-0e44-4898-accc-9a50b5fb3e37">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>,</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="281bd87f-90bb-4e80-8970-4a85ee75f0c6">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>temperature</contextKey>
+          <expression id="7f148dc8-498c-4b7b-ba5d-c1f937c70839">
+            <annotation></annotation>
+            <name>Result Field: dwmlByDayOut</name>
+            <fieldName>dwmlByDayOut</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <replaceAllFilter id="c950ba32-5e9a-4a42-a65d-0dde17cd524d">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>&amp;lt;</searchString>
+                <replaceString>&lt;</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="6e8ee087-6668-4414-b192-2a82717abc06">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>&amp;gt;</searchString>
+                <replaceString>&gt;</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="2850d635-4385-419c-a223-289592905bf1">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>&amp;quot;</searchString>
+                <replaceString>&apos;</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <xmlGetElementValueFilter id="f96c6b46-88c5-4e92-8da0-a663e04a1bdc">
+                <annotation></annotation>
+                <name>XML Get Element Value</name>
+                <elementPath>/dwml/data/parameters/temperature/value</elementPath>
+              </xmlGetElementValueFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
       <throttleSize>0</throttleSize>
     </step>
     <step id="fa7212c0-4bd5-4c38-98c4-a4bddd6bedf4">
@@ -662,9 +836,10 @@
       <scriptResultStep>false</scriptResultStep>
       <userPrompt></userPrompt>
       <bindings>
-        <userInputBinding id="4eb6b823-dc01-4039-a2b2-1cd729df8e7d">
+        <userInputBinding id="e6ee80d4-a427-4c33-ac97-1f04274e7e36">
           <annotation></annotation>
-          <assignFromContext>false</assignFromContext>
+          <fromContextKey>NDFDgenByDay.startDate</fromContextKey>
+          <assignFromContext>true</assignFromContext>
           <assignToContext>false</assignToContext>
           <inputType>STRING</inputType>
           <isList>false</isList>
@@ -687,6 +862,7 @@
           <isPersisted>true</isPersisted>
           <inputSymbol>dateFormat</inputSymbol>
           <listDelimiter>,</listDelimiter>
+          <value>yyyy-MM-dd</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="6f6e0861-9ac2-4952-9a74-00fecb7ea9ec">
@@ -699,6 +875,7 @@
           <isPersisted>true</isPersisted>
           <inputSymbol>dateLocaleLang</inputSymbol>
           <listDelimiter>,</listDelimiter>
+          <value>en</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="003c3bea-534b-4234-8a3e-c65a4b7869db">
@@ -711,6 +888,7 @@
           <isPersisted>true</isPersisted>
           <inputSymbol>dateLocaleCountry</inputSymbol>
           <listDelimiter>,</listDelimiter>
+          <value>US</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="2c7eaee6-4a1a-4693-8c52-55b608f41d89">
@@ -723,6 +901,7 @@
           <isPersisted>true</isPersisted>
           <inputSymbol>outFormat</inputSymbol>
           <listDelimiter>,</listDelimiter>
+          <value>EEEE MMMMM dd,yyyy</value>
           <record>false</record>
         </staticBinding>
         <staticBinding id="40d26220-58b8-470e-813c-311ccc4b9515">
@@ -814,7 +993,22 @@
       <opRef>
         <refId>c88d27ac-30cb-4ba9-acc0-404f7e15ec4a</refId>
       </opRef>
-      <assignments/>
+      <assignments>
+        <flowVariableAssignment id="f77989dc-5cea-42d5-8af5-5a0f27bcaa1e">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>displayDate</contextKey>
+          <expression id="24db7fc4-89ee-4e6f-9b78-3cd207d6ff32">
+            <annotation></annotation>
+            <name>Result Field: Result</name>
+            <fieldName>Result</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
       <throttleSize>0</throttleSize>
     </step>
     <step id="0673471d-a756-4f7b-87c3-bf737f560db1">
@@ -839,7 +1033,7 @@
       <scriptResultStep>false</scriptResultStep>
       <userPrompt></userPrompt>
       <bindings>
-        <userInputBinding id="8771ef1d-556f-4d24-b767-369e5e2a427f">
+        <staticBinding id="7172e0d7-40c5-4310-927d-9ddc94191e21">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
           <assignToContext>false</assignToContext>
@@ -849,11 +1043,17 @@
           <isPersisted>true</isPersisted>
           <inputSymbol>message</inputSymbol>
           <listDelimiter>,</listDelimiter>
+          <value>&lt;b&gt;${displayDate}&lt;/b&gt;
+
+Current weather for &lt;b&gt;${LatLonListZipCode.zipCodeList}&lt;/b&gt;:
+
+&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Conditions:&lt;/td&gt;&lt;td&gt;${summary}&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Temperature:&lt;/td&gt;&lt;td&gt;${temperature}&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Chance of rain:&lt;/td&gt;&lt;td&gt;${precipPct}%&lt;/td&gt;&lt;/tr&gt;
+&lt;/t</value>
           <record>false</record>
-          <prompt></prompt>
-          <isMultiSelect>false</isMultiSelect>
-          <sourceDelimiter>|</sourceDelimiter>
-        </userInputBinding>
+        </staticBinding>
         <staticBinding id="60ae5bfe-93e2-4327-bae4-f1025b5a581f">
           <annotation></annotation>
           <assignFromContext>false</assignFromContext>
