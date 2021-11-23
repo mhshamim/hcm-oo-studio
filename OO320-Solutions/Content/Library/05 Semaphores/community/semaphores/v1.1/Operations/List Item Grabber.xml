@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operation id="94ce293c-3623-41d9-82f1-3f9874c747e6">
+  <descriptionCdata><![CDATA[94ce293c-3623-41d9-82f1-3f9874c747e6.description=<pre>Retrieves a value from a list.\n\nInputs\:\nlist - A list to get the value from.\ndelimiter - the delimiter that separates values in the list.\nindex - the index of the value (Starting at 0) to retrieve from the list, or end for the last element, or end-1 for the second to last element.\n\nResponses\:\nsuccess - The operation completed successfully.\nfailure - Something went wrong.\n\nReturns\:\nThe value read from the list.</pre>
+]]></descriptionCdata>
+  <annotation>94ce293c-3623-41d9-82f1-3f9874c747e6.description</annotation>
+  <name>List Item Grabber</name>
+  <categories/>
+  <inputs>
+    <userInputBinding id="9a0df0fb-7d25-4402-bc1f-e4a719175f65">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>list</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <staticBinding id="cb95d233-79cd-4c5c-b916-3d07eb16ed0b">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>delimiter</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>,</value>
+      <record>false</record>
+    </staticBinding>
+    <userInputBinding id="514baff0-b805-4c2c-826a-1697576aa3da">
+      <annotation></annotation>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>index</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="9404086b-d532-4b09-95b3-b24868f6d9f8">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules>
+        <expression id="70b4ef2a-76fb-4975-bfeb-a4a96d43242f">
+          <annotation></annotation>
+          <name>response</name>
+          <fieldName>response</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <compare id="73b65ae3-885f-456f-b03d-3eeebc058787">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>success</text>
+            <matchType>=</matchType>
+          </compare>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="4db12f78-b5e7-4127-8b8d-d1436424ecbc">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>true</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules>
+        <expression id="e1eeb602-eb0c-41f1-818f-ac27abaa13b8">
+          <annotation></annotation>
+          <name>response</name>
+          <fieldName>response</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <compare id="c10f9ae2-f14e-4557-9843-c2adb2c35ca9">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>failure</text>
+            <matchType>=</matchType>
+          </compare>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="7073a03c-e53b-4925-be84-cced973224c0">
+    <annotation></annotation>
+    <name>result</name>
+    <fieldName>result</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="76b6bdc0-e097-41a1-8ce0-c512d2bf88c3">
+    <baseIcon>jar.png</baseIcon>
+    <basePath>Others/</basePath>
+    <readOnly>false</readOnly>
+    <layers>
+      <iconSpec id="c3ce4285-1a34-48be-b2d8-6e088c2509c7">
+        <baseIcon>wrench.png</baseIcon>
+        <basePath>Annotations/</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+    </layers>
+  </iconSpec>
+  <opRef>
+    <refId>220cd77a-fc75-47e7-8f3a-15ccca91ad80</refId>
+  </opRef>
+  <fieldValues/>
+  <groupAliasRef>
+    <refId>5233030c-af46-432b-a682-b326ca6bf2ae</refId>
+    <refName>RAS_Operator_Path</refName>
+  </groupAliasRef>
+</operation>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operation id="81b195ec-37fa-478b-b61b-d64dd85bcf01">
+  <descriptionCdata><![CDATA[81b195ec-37fa-478b-b61b-d64dd85bcf01.c3f8239c-4653-41f2-9d26-97004aa53fd2.prompt=Enter list of values separated by delimiter\:
+81b195ec-37fa-478b-b61b-d64dd85bcf01.description=<pre>Returns the length of the list.\n\nInputs\:\ndelimiter - The list delimiter.\nlist - The list to be processed\n\nResponses\:\nsuccess - The operation completed Successfully.\nfailure - Something went wrong.\n\nReturns\:\nThe length of the list.</pre>
+81b195ec-37fa-478b-b61b-d64dd85bcf01.e17aa748-39a9-4b23-afa2-f28ace325d4b.prompt=List Delimiter\:
+]]></descriptionCdata>
+  <annotation>81b195ec-37fa-478b-b61b-d64dd85bcf01.description</annotation>
+  <name>List Size</name>
+  <categories/>
+  <inputs>
+    <userInputBinding id="c3f8239c-4653-41f2-9d26-97004aa53fd2">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>list</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>81b195ec-37fa-478b-b61b-d64dd85bcf01.c3f8239c-4653-41f2-9d26-97004aa53fd2.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <userInputBinding id="e17aa748-39a9-4b23-afa2-f28ace325d4b">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>delimiter</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt>81b195ec-37fa-478b-b61b-d64dd85bcf01.e17aa748-39a9-4b23-afa2-f28ace325d4b.prompt</prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="c9a8c730-b24a-48ab-a562-3b510e92a9b3">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules>
+        <expression id="9e80efb2-4960-4e34-b2a3-7dd2afc8c13b">
+          <annotation></annotation>
+          <name>response</name>
+          <fieldName>response</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <compare id="1ce65902-4887-48b4-9bdb-bc95c4e1b48d">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>success</text>
+            <matchType>=</matchType>
+          </compare>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="60fd3966-14b5-4520-8b44-95203582c4bf">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>true</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules>
+        <expression id="6ea37250-8cf0-4fb0-9517-1f06475c5fb8">
+          <annotation></annotation>
+          <name>response</name>
+          <fieldName>response</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <compare id="4b1f73f7-67d0-4ada-ab08-d9d4758a6b6e">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>failure</text>
+            <matchType>=</matchType>
+          </compare>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="acd91101-8278-4d60-b54c-fd6fadbc7c4e">
+    <annotation></annotation>
+    <name>result</name>
+    <fieldName>result</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="7145d19a-4138-4471-9329-671b17816225">
+    <baseIcon>jar.png</baseIcon>
+    <basePath>/Others/</basePath>
+    <readOnly>false</readOnly>
+    <layers>
+      <iconSpec id="45ea61e3-f07e-463a-96d6-a2db3d32d53d">
+        <baseIcon>Calculator.png</baseIcon>
+        <basePath>/Annotations/</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+    </layers>
+  </iconSpec>
+  <opRef>
+    <refId>1edad764-28e1-49a2-bb31-4eec8e38449b</refId>
+  </opRef>
+  <fieldValues/>
+  <groupAliasRef>
+    <refId>5233030c-af46-432b-a682-b326ca6bf2ae</refId>
+    <refName>RAS_Operator_Path</refName>
+  </groupAliasRef>
+</operation>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operation id="4711a3ad-c5e7-4fe6-8cc3-93632d59f854">
+  <descriptionCdata><![CDATA[4711a3ad-c5e7-4fe6-8cc3-93632d59f854.description=<pre>\nResolve "operation".\n</pre>
+]]></descriptionCdata>
+  <annotation>4711a3ad-c5e7-4fe6-8cc3-93632d59f854.description</annotation>
+  <name>Semaphore Action Resolver</name>
+  <categories/>
+  <inputs>
+    <userInputBinding id="7d3d3241-b30a-4fb4-81af-85e48ffb5903">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>operation</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <record>false</record>
+      <prompt></prompt>
+      <isMultiSelect>false</isMultiSelect>
+      <sourceDelimiter>|</sourceDelimiter>
+    </userInputBinding>
+    <staticBinding id="f3ab6c98-28fb-4eb5-83a9-10a0206137dc">
+      <annotation></annotation>
+      <toContextKey></toContextKey>
+      <fromContextKey></fromContextKey>
+      <assignFromContext>false</assignFromContext>
+      <assignToContext>false</assignToContext>
+      <inputType>STRING</inputType>
+      <recordKey></recordKey>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>true</isPersisted>
+      <inputSymbol>Field_1</inputSymbol>
+      <listDelimiter></listDelimiter>
+      <value>${operation}</value>
+      <record>false</record>
+    </staticBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="21127d88-c914-4d09-8c38-1681126794d8">
+      <annotation></annotation>
+      <name>notify</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules>
+        <expression id="130cc28a-8caa-4908-af84-65d4797da0c5">
+          <annotation></annotation>
+          <name>Field 1</name>
+          <fieldName>Field_1</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <compare id="2a8462b4-2127-4855-8e2f-1236e611af6d">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>notify</text>
+            <matchType>=</matchType>
+          </compare>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="66338127-f765-49a1-a3df-73a5b5975bf0">
+      <annotation></annotation>
+      <name>reset</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules>
+        <expression id="23f2e2b6-acb2-45b0-856d-9e98b02cc638">
+          <annotation></annotation>
+          <name>Field 1</name>
+          <fieldName>Field_1</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <compare id="c83638f5-280b-4634-a073-2a94f37aa28a">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>reset</text>
+            <matchType>=</matchType>
+          </compare>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="90252674-b82d-4204-93a1-e83a034e82dc">
+      <annotation></annotation>
+      <name>wait</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules>
+        <expression id="69693e74-4733-41c1-95d9-17e0db0b2432">
+          <annotation></annotation>
+          <name>Field 1</name>
+          <fieldName>Field_1</fieldName>
+          <sourceType>RAWRESULT</sourceType>
+          <compare id="37698686-de1c-4cee-bcf0-7ca62f2d5cdc">
+            <annotation></annotation>
+            <name>Config Item</name>
+            <text>wait</text>
+            <matchType>=</matchType>
+          </compare>
+          <filters/>
+        </expression>
+      </matchRules>
+    </opResponse>
+    <opResponse id="e1c1dc18-afa2-41b6-b3f1-c0f158659b02">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>true</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="2105c4ad-fde7-48ca-9b64-5803bde7c0e8">
+    <annotation></annotation>
+    <name></name>
+    <fieldName>Field_1</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="6f02931c-9587-4c5f-95ee-35e12ab96606">
+    <baseIcon>branch_element.png</baseIcon>
+    <basePath>/Others/</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <opRef>
+    <refId>ddd79f22-8b1e-4605-88d5-d912bb2da2b9</refId>
+  </opRef>
+  <fieldValues/>
+  <groupAliasRef>
+    <refId>5233030c-af46-432b-a682-b326ca6bf2ae</refId>
+    <refName>RAS_Operator_Path</refName>
+  </groupAliasRef>
+</operation>

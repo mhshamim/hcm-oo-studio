@@ -1,0 +1,1264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow id="db01d55b-8444-4080-ab30-f6199c840489">
+  <descriptionCdata><![CDATA[db01d55b-8444-4080-ab30-f6199c840489.0283b72e-ac54-428e-b06a-accd939a17f0.prompt=Please provide a date for the forecast
+db01d55b-8444-4080-ab30-f6199c840489.0f33fbea-968c-480f-be29-7101838d274c.description=<pre>\nThis subflow was created by the Web Services Wizard to invoke the LatLonListZipCode operation on http\://graphical.weather.gov/xml/SOAP_server/ndfdXMLserver.php?wsdl. Note that the inputs to this flow which correspond to web service inputs are optional inputs.  This is due to the fact that web services definitions usually incorrectly indicate that too many inputs are required, and mirroring those settings in the flow would force you to enter unused values when running the flow.  The xmlTemplate input on the Invoke Method 2 step of this flow contains a template of the xml message to be sent, and the fields preceded by the comment "<\!--Optional\:-->" or "<\!--zero or more repetitions-->" are those which the web service indicates are optional; all others are indicated to be required.\n\nInputs\:\n    webserviceHost - The host that is running the web service\n    webservicePort - The port on the host running the web service\n    headers - The list containing the headers to use for the request separated by new line (CRLF).The header name - value pair will be separated by "\:".\nFormat\: Conforming with HTTP standard for headers (RFC 2616).\nExamples\: Accept-Language\:en\n    proxy - The port on the host running the web service.\n    proxyPort - A port on the proxy to connect to.\n    LatLonListZipCode.zipCodeList - The input named LatLonListZipCode|zipCodeList of the complex type\: LatLonListZipCode\n\nResults\:\n    document - The raw XML response of the web service\n    documentStripped - The XML response of the web service stripped of namespaces\n    responseHeaders - The list containing the headers of the response message, separated by newline.\nFormat\: This is conforming with HTTP standard for headers (RFC 2616).\nExample\: Content-Type\: text/xml;charset\=utf-8\n               Transfer-Encoding\: chunkedWebServiceWizard.repo.successDesc\=The SOAP command was accepted by the web service\n    listLatLonOut - The output given by the XPath\: /Envelope/Body/LatLonListZipCodeResponse/listLatLonOut/text()\n\nResponses\:\n    success - The SOAP command was accepted by the web service\n    failure - Something went wrong while making the SOAP request\n</pre>
+db01d55b-8444-4080-ab30-f6199c840489.5f622f76-f6e5-403c-a66d-ae909c900003.prompt=Enter a ZIP Code (94085)\:
+db01d55b-8444-4080-ab30-f6199c840489.7240bd60-bae3-465b-8dc1-8a8c7453c0e0.description=<pre>\nThis operation converts the date input value from one date/time format (specified by dateFormat) to another date/time format (specified by outFormat) using locale settings (language and country).\nYou can use the flow "Get Current Date and Time" to check upon the default date/time format from the Java environement.  \n\nInputs\:\n    date - The date to parse/convert.\n    dateFormat - The format of the input date.\nDefault value\: default date/time format from the Java environement (which is dependent on the OS date/time format)\nExamples\: unix, yyyy-MM-dd'T'HH\:mm\:ss.SSSXXX, h\:mm a\n    dateLocaleLang - The locale language for input dateFormat string. It will be ignored if dateFormat is empty. \nDefault value\: default locale language from the Java environement (which is dependent on the OS locale language)\nExamples\: en, ja\n    dateLocaleCountry - The locale country for input dateFormat string. It will be ignored if dateFormat is empty or dateLocaleLang is empty.\nDefault value\: default locale country from the Java environement (which is dependent on the OS locale country)\nExample\: US, FR\n    outFormat - The format of the output date/time.\nDefault value\: default date/time format from the Java environement (which is dependent on the OS date/time format)\nExamples\: unix, yyyy-MM-dd'T'HH\:mm\:ss.SSSXXX, h\:mm a\n    outLocaleLang - The locale language for output string. It will be ignored if outFormat is empty. \nDefault value\: default locale language from the Java environement (which is dependent on the OS locale language)\nExamples\: en, ja\n    outLocaleCountry - The locale country for output string. It will be ignored if outFormat is empty or outLocaleLang is empty.\nDefault value\: default locale country from the Java environement (which is dependent on the OS locale country)\nExample\: US, FR\n\nResults\:\n    returnResult - The date in the new format.\n\nResponses\:\n    success - The date was converted.\n    failure - The date could not be converted.\n\nNotes\:\n    1. If default locale language from the Java environement is English, the input dateFormat is empty and the input outFormat is empty, the input date should be in the format of "July 13, 2006 10\:04\:08 AM". If the user specifies dateFormat as "dd-MM-yyyy HH\:mm\:ss", the input date should be in the format of "13-07-2006 10\:04\:08". If the input outFormat is empty, the result will be "July 13, 2006 10\:04\:08 AM". If the input outFormat is "yyyy-MM-dd", the result will be "2006-07-13". The dateFormat for "July 13, 2006 10\:04\:078 AM" is "MMM dd, yyyy HH\:mm\:ss a".\n    2. Note that the dateFormat and outFormat inputs are case sensitive. 'M' is used for months representation and 'm' for minutes.\n    3. Within date and time pattern strings, unquoted letters from 'A' to 'Z' and from 'a' to 'z' are interpreted as pattern letters representing the components of a date or time string. Text can be quoted using single quotes (') to avoid interpretation. "''" represents a single quote. All other characters are not interpreted; they're simply copied into the output string during formatting or matched against the input string during parsing. The following pattern letters are defined (all other characters from 'A' to 'Z' and from 'a' to 'z' are reserved)\:\n\nLetter\tDate or Time Component\t\t\tPresentation\t\tExamples\nG\tEra designator\t\t\t\tText\t\tAD\ny\tYear\t\t\t\tYear\t\t1996;\u00A096\nY\tWeek year\t\t\t\tYear\t\t2009;\u00A009\nM\tMonth in year\t\t\t\tMonth\t\tJuly;\u00A0Jul;\u00A007\nw\tWeek in year\t\t\t\tNumber\t\t27\nW\tWeek in month\t\t\t\tNumber\t\t2\nD\tDay in year\t\t\t\tNumber\t\t189\nd\tDay in month\t\t\t\tNumber\t\t10\nF\tDay of week in month\t\t\tNumber\t\t2\nE\tDay name in week\t\t\tText\t\tTuesday;\u00A0Tue\nu\tDay number of week (1 \= Monday, ..., 7 \= Sunday)\tNumber\t\t1\na\tAm/pm marker\t\t\t\tText\t\tPM\nH\tHour in day (0-23)\t\t\tNumber\t\t0\nk\tHour in day (1-24)\t\t\tNumber\t\t24\nK\tHour in am/pm (0-11)\t\t\tNumber\t\t0\nh\tHour in am/pm (1-12)\t\t\tNumber\t\t12\nm\tMinute in hour\t\t\t\tNumber\t\t30\ns\tSecond in minute\t\t\tNumber\t\t55\nS\tMillisecond\t\t\t\tNumber\t\t978\nz\tTime zone\t\t\t\tGeneral time zone\tPacific Standard Time;\u00A0PST;\u00A0GMT-08\:00\nZ\tTime zone\t\t\t\tRFC 822 time zone\t-800\nX\tTime zone\t\t\t\tISO 8601 time zone\t-08;\u00A0-0800;\u00A0-08\:00\nSpecial case\:\nunix\tUnix timestamp\t\t\tNumber\t\t1384326000\n\nExamples for the date 2001-07-04 12\:08\:56 in U.S. Pacific Time\:\n\nDate\t\t\tDateFromat\t\t\tDateLocaleLang\tDateLocaleCountry\n2001.07.04 AD at 12\:08\:56 PDT\tyyyy.MM.dd G 'at' HH\:mm\:ss z\t\ten\t\tUS\nWed, Jul 4, '01\t\t\tEEE, MMM d, ''yy\t\ten\t\tUS\n2001-07-04T12\:08\:56.235+0700\tyyyy-MM-dd'T'HH\:mm\:ss.SSSZ\ten\t\tUS\n2001-07-04T12\:08\:56.235-07\:00\tyyyy-MM-dd'T'HH\:mm\:ss.SSSXXX\ten\t\tUS\n1309781336\t\t\tunix\t\t\t-\t\t-\n</pre>
+db01d55b-8444-4080-ab30-f6199c840489.7be85ded-16b0-4eb0-ab4e-67fe09f6a344.description=<pre>\n\nDisplays a message to the user.\n\nInputs\:\n  message - The message text to display\n  title - The title on the message window. Defaults to "Status message".\n\nResponses\:\n  Always returns success.\n\nExamples\:\n  In order to display the message "Finished" to the user, go to the \n  detail screen for the input named "message" and change the Otherwise option\n  from Prompt User to Use Constant.  Then enter the text "Finished" into the\n  Constant Value field.\n\n  References to flow variables in the Contant Value field are expanded so that\n  the text may be dynamic.  Flow variable references are of the form\n  ${variable}.  For example, the text\:\n     ${count} systems were modified \n  could be used to display a message about the number of systems that were\n  repaired, whose value is in the flow variable "count".\n\n  When the message is displayed, it will properly render any embedded html\n  tags, which permits creating messages with more advanced formatting.  For \n  example to display a message in italics you could use\:\n    <i>This is important</i>\n  or to display a message in red\:\n    <i>This is <span style\="color\: red">really </span> important</i>\n\n  You can create messages that contain multiple lines by entering a multiple\n  line message in the Constant Value field, or by using HTML <BR> tags for line\n  breaks.  Note that \\n characters are displayed literally and are not used for\n  creating multiple lines.\n\n</pre>\n
+db01d55b-8444-4080-ab30-f6199c840489.868fd1ce-d551-4a54-bdf6-f118696c07f2.description=<pre>\nThis subflow was created by the Web Services Wizard to invoke the NDFDgenByDay operation on http\://graphical.weather.gov/xml/SOAP_server/ndfdXMLserver.php?wsdl. Note that the inputs to this flow which correspond to web service inputs are optional inputs.  This is due to the fact that web services definitions usually incorrectly indicate that too many inputs are required, and mirroring those settings in the flow would force you to enter unused values when running the flow.  The xmlTemplate input on the Invoke Method 2 step of this flow contains a template of the xml message to be sent, and the fields preceded by the comment "<\!--Optional\:-->" or "<\!--zero or more repetitions-->" are those which the web service indicates are optional; all others are indicated to be required.\n\nInputs\:\n    webserviceHost - The host that is running the web service\n    webservicePort - The port on the host running the web service\n    headers - The list containing the headers to use for the request separated by new line (CRLF).The header name - value pair will be separated by "\:".\nFormat\: Conforming with HTTP standard for headers (RFC 2616).\nExamples\: Accept-Language\:en\n    proxy - The port on the host running the web service.\n    proxyPort - A port on the proxy to connect to.\n    NDFDgenByDay.Unit - The input named NDFDgenByDay|Unit of the complex type\: NDFDgenByDay\n    NDFDgenByDay.format - The input named NDFDgenByDay|format of the complex type\: NDFDgenByDay\n    NDFDgenByDay.latitude - The input named NDFDgenByDay|latitude of the complex type\: NDFDgenByDay\n    NDFDgenByDay.longitude - The input named NDFDgenByDay|longitude of the complex type\: NDFDgenByDay\n    NDFDgenByDay.numDays - The input named NDFDgenByDay|numDays of the complex type\: NDFDgenByDay\n    NDFDgenByDay.startDate - The input named NDFDgenByDay|startDate of the complex type\: NDFDgenByDay\n\nResults\:\n    document - The raw XML response of the web service\n    documentStripped - The XML response of the web service stripped of namespaces\n    responseHeaders - The list containing the headers of the response message, separated by newline.\nFormat\: This is conforming with HTTP standard for headers (RFC 2616).\nExample\: Content-Type\: text/xml;charset\=utf-8\n               Transfer-Encoding\: chunkedWebServiceWizard.repo.successDesc\=The SOAP command was accepted by the web service\n    dwmlByDayOut - The output given by the XPath\: /Envelope/Body/NDFDgenByDayResponse/dwmlByDayOut/text()\n\nResponses\:\n    success - The SOAP command was accepted by the web service\n    failure - Something went wrong while making the SOAP request\n</pre>
+]]></descriptionCdata>
+  <annotation></annotation>
+  <name>Locate Forecast By ZIP (Copy 1)</name>
+  <categories/>
+  <inputs/>
+  <possibleResponses>
+    <opResponse id="676ddc98-0029-43fa-a2cb-6dbf65357cab">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="95f8fb08-bd83-4d78-9433-ad7261e336fb">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="067317db-170d-4362-9061-6ce3b6f890e9">
+    <annotation></annotation>
+    <name>FailureMessage</name>
+    <fieldName>FailureMessage</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="d179b69b-f047-4985-86c0-bce67d48f398">
+    <baseIcon>flow.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <callouts/>
+  <checkPointFlow>true</checkPointFlow>
+  <compatibleRuntimeContext>false</compatibleRuntimeContext>
+  <historyCheckPointFlow>true</historyCheckPointFlow>
+  <steps>
+    <step id="0f33fbea-968c-480f-be29-7101838d274c">
+      <annotation>db01d55b-8444-4080-ab30-f6199c840489.0f33fbea-968c-480f-be29-7101838d274c.description</annotation>
+      <name>Get Forecast by ZIP Code</name>
+      <bounds>
+        <x>30.0</x>
+        <y>30.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="74068d38-06a6-4816-8f3e-f3b2956c0ea6">
+        <baseIcon>flow.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="dde36dfa-5457-4613-8e7d-624cfe6d70d5">
+          <annotation></annotation>
+          <fromContextKey>SP_Us_Weather_Services_WebService_Host</fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>true</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>webserviceHost</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>graphical.weather.gov</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="1c174acb-e3df-4589-80fa-8609b3d29f3c">
+          <annotation></annotation>
+          <fromContextKey>SP_Us_Weather_Services_WebService_Port</fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>true</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>webservicePort</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>443</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="fd0a04b7-5f8a-43c1-8f74-2f984b67411e">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>headers</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="c56b8bb2-d117-46d5-8d25-76efc0e5614d">
+          <annotation></annotation>
+          <fromContextKey>SP_Us_Weather_Services_Proxy_Host</fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>true</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxy</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>proxy.sdp.training</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="925c7ceb-5843-4ebe-aa20-823c82a0cfca">
+          <annotation></annotation>
+          <fromContextKey>SP_Us_Weather_Services_Proxy_Port</fromContextKey>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>true</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxyPort</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>8080</value>
+          <record>false</record>
+        </staticBinding>
+        <userInputBinding id="5f622f76-f6e5-403c-a66d-ae909c900003">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>true</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>LatLonListZipCode.zipCodeList</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>db01d55b-8444-4080-ab30-f6199c840489.5f622f76-f6e5-403c-a66d-ae909c900003.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+      </bindings>
+      <transitions>
+        <transition id="812caa33-ca4b-4c7c-abf0-4b62875c6687">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>61d12543-9cf1-47bf-a9e4-29e6eb03ecad</refId>
+          </destination>
+          <source>
+            <refId>0f33fbea-968c-480f-be29-7101838d274c</refId>
+          </source>
+          <positions>
+            <point>
+              <x>32.0</x>
+              <y>63.93121350394074</y>
+            </point>
+            <point>
+              <x>150.0</x>
+              <y>120.0</y>
+            </point>
+            <point>
+              <x>170.0</x>
+              <y>200.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>566.9970348337034</x>
+            <y>-0.17127367723006268</y>
+          </labelPosition>
+        </transition>
+        <transition id="e5927f4f-3c71-4217-bbb1-64bd6dbb4cd2">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>3c0d700f-5f57-4414-bb8d-e9400320bca4</refId>
+          </destination>
+          <source>
+            <refId>0f33fbea-968c-480f-be29-7101838d274c</refId>
+          </source>
+          <positions>
+            <point>
+              <x>80.0</x>
+              <y>64.0</y>
+            </point>
+            <point>
+              <x>260.0</x>
+              <y>64.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>4a9e131a-bc19-4b46-bc73-5566ef9985c0</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="b1986f9f-5087-4be3-9d9f-8566407bc167">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>longitude</contextKey>
+          <expression id="1af001bd-a8fb-4069-96c0-6de03929ebbb">
+            <annotation></annotation>
+            <name>Result Field: listLatLonOut</name>
+            <fieldName>listLatLonOut</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <replaceAllFilter id="b177679a-4e08-409e-baf2-affb8deadbca">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>&amp;lt;</searchString>
+                <replaceString>&lt;</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="0267564c-4537-4c1b-99aa-878b1cc550e8">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>&amp;gt;</searchString>
+                <replaceString>&gt;</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <stripTrailingFilter id="f49d6a19-8b7a-4d27-875f-8303ea48998e">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>&lt;dwml</strip>
+                <type>ALL_CHARACTERS_UP_TO</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="fe0f1f6f-2bb5-4097-b35c-9c84c6e6c748">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>&lt;/dwml&gt;</strip>
+                <type>ALL_CHARACTERS_AFTER</type>
+              </stripTrailingFilter>
+              <xmlGetElementValueFilter id="f7b0c71c-0e67-4577-b44e-05256045726f">
+                <annotation></annotation>
+                <name>XML Get Element Value</name>
+                <elementPath>/dwml/latLonList</elementPath>
+              </xmlGetElementValueFilter>
+              <stripTrailingFilter id="560e8050-23c4-48f9-886a-24754418da0f">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>,</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="3eded1d9-1240-4ed3-8732-ae2870c932dd">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>latitude</contextKey>
+          <expression id="546453bb-4746-4d4c-a654-a45d58d4f167">
+            <annotation></annotation>
+            <name>Result Field: listLatLonOut</name>
+            <fieldName>listLatLonOut</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <replaceAllFilter id="7b85afe3-c912-41ec-9cd8-526021c1ef4b">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>&amp;lt;</searchString>
+                <replaceString>&lt;</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="18f1b3a6-ea24-4e20-8e90-eeebbbec629e">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>&amp;gt;</searchString>
+                <replaceString>&gt;</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <stripTrailingFilter id="a17e4a8f-6607-4a9a-97aa-721e055343a4">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>&lt;dwml</strip>
+                <type>ALL_CHARACTERS_UP_TO</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="6e739b70-4759-4c6a-b88d-c071399fa3f0">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>&lt;/dwml&gt;</strip>
+                <type>ALL_CHARACTERS_AFTER</type>
+              </stripTrailingFilter>
+              <xmlGetElementValueFilter id="5271f03e-d24f-4750-8466-10a42798cb51">
+                <annotation></annotation>
+                <name>XML Get Element Value</name>
+                <elementPath>/dwml/latLonList</elementPath>
+              </xmlGetElementValueFilter>
+              <numberFilter id="591bf1d0-e016-4dd6-80a7-ff7deb31ff84">
+                <annotation></annotation>
+                <name>Extract Number</name>
+              </numberFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="7be85ded-16b0-4eb0-ab4e-67fe09f6a344">
+      <annotation>db01d55b-8444-4080-ab30-f6199c840489.7be85ded-16b0-4eb0-ab4e-67fe09f6a344.description</annotation>
+      <name>Display Forecast</name>
+      <bounds>
+        <x>420.0</x>
+        <y>270.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="7fdb6923-2ee9-42c9-bcba-853d2f21d7e4">
+        <baseIcon>display_report.png</baseIcon>
+        <basePath>/Utilities/</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="4d21e68d-874e-4320-a0ab-ee0460d9ecc6">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>message</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>&lt;b&gt;${displayDate}&lt;/b&gt;
+
+Current weather for &lt;b&gt;${LatLonListZipCode.zipCodeList}&lt;/b&gt;:
+
+&lt;table&gt;
+&lt;tr&gt;&lt;td&gt;Conditions:&lt;/td&gt;&lt;td&gt;${summary}&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Temperature:&lt;/td&gt;&lt;td&gt;${temperature}&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Chance of rain:&lt;/td&gt;&lt;td&gt;${precipPct}%&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="72fd2ba8-a545-419e-8603-a81a83f7e5b9">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>title</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>Status message</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="697ad78a-822a-4e4a-8470-4b03bb4476be">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>3a8d5cee-6b47-42e7-ac77-52cefdc6c7d7</refId>
+          </destination>
+          <source>
+            <refId>7be85ded-16b0-4eb0-ab4e-67fe09f6a344</refId>
+          </source>
+          <positions>
+            <point>
+              <x>530.0</x>
+              <y>304.0</y>
+            </point>
+            <point>
+              <x>380.0</x>
+              <y>304.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>434e6fa2-26bc-4e84-9e1f-0aa6946cf920</refId>
+      </opRef>
+      <assignments/>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="3a8d5cee-6b47-42e7-ac77-52cefdc6c7d7">
+      <annotation></annotation>
+      <name>Resolved : success</name>
+      <bounds>
+        <x>120.0</x>
+        <y>270.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="9be64eb0-0204-4ab9-a4e1-27336704ca58">
+        <baseIcon>return_success.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>true</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="f31b6fc8-697c-4bc4-83dd-ea92404fd1c8">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>3a8d5cee-6b47-42e7-ac77-52cefdc6c7d7</refId>
+          </destination>
+          <source>
+            <refId>3a8d5cee-6b47-42e7-ac77-52cefdc6c7d7</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments/>
+    </returnStep>
+    <returnStep id="61d12543-9cf1-47bf-a9e4-29e6eb03ecad">
+      <annotation></annotation>
+      <name>Error : failure</name>
+      <bounds>
+        <x>120.0</x>
+        <y>150.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="e1f0c69b-42bf-4818-8b6a-85c85d840dde">
+        <baseIcon>return_failure.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>true</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="dbbcd66c-5172-42eb-9d1a-c6cbc99fd355">
+          <annotation></annotation>
+          <name>return</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>61d12543-9cf1-47bf-a9e4-29e6eb03ecad</refId>
+          </destination>
+          <source>
+            <refId>61d12543-9cf1-47bf-a9e4-29e6eb03ecad</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>ERROR</returnStepType>
+      <assignments/>
+    </returnStep>
+    <step id="7240bd60-bae3-465b-8dc1-8a8c7453c0e0">
+      <annotation>db01d55b-8444-4080-ab30-f6199c840489.7240bd60-bae3-465b-8dc1-8a8c7453c0e0.description</annotation>
+      <name>Date Parser</name>
+      <bounds>
+        <x>420.0</x>
+        <y>150.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="be98ab5a-ef28-401f-9180-b6792e4c09be">
+        <baseIcon>calendar.png</baseIcon>
+        <basePath>Others/</basePath>
+        <readOnly>false</readOnly>
+        <layers>
+          <iconSpec id="ad5654b4-ce49-47cd-8190-64218e1098b4">
+            <baseIcon>wrench.png</baseIcon>
+            <basePath>Annotations/</basePath>
+            <readOnly>false</readOnly>
+            <layers/>
+          </iconSpec>
+        </layers>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <userInputBinding id="758853eb-9570-4abe-ba46-55af29458d92">
+          <annotation></annotation>
+          <fromContextKey>NDFDgenByDay.startDate</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>date</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt></prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+        <staticBinding id="4671b8db-70da-42f5-b870-ecc1c0c17a97">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>dateFormat</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>yyyy-MM-dd</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="9a04d5a5-32e3-40a0-b9d4-986fd9e13136">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>dateLocaleLang</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>en</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="6b42da29-90f8-4208-871c-73f887afd43e">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>dateLocaleCountry</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>US</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="a99ff12c-ed9d-4994-8ef9-5020c652b840">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>outFormat</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>EEEE MMMMM dd, yyyy</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="321f4963-b763-49c1-91e1-929298ff73f7">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>outLocaleLang</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="6f036492-7e55-49f8-a3b3-d9664511b68d">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>outLocaleCountry</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="60783818-7444-4a71-901f-acaa9a33068e">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>61d12543-9cf1-47bf-a9e4-29e6eb03ecad</refId>
+          </destination>
+          <source>
+            <refId>7240bd60-bae3-465b-8dc1-8a8c7453c0e0</refId>
+          </source>
+          <positions>
+            <point>
+              <x>530.0</x>
+              <y>214.0</y>
+            </point>
+            <point>
+              <x>380.0</x>
+              <y>214.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="2f72602d-6b10-475c-9d05-d83e3530402d">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>7be85ded-16b0-4eb0-ab4e-67fe09f6a344</refId>
+          </destination>
+          <source>
+            <refId>7240bd60-bae3-465b-8dc1-8a8c7453c0e0</refId>
+          </source>
+          <positions>
+            <point>
+              <x>491.94444444444446</x>
+              <y>216.0</y>
+            </point>
+            <point>
+              <x>540.0</x>
+              <y>240.0</y>
+            </point>
+            <point>
+              <x>470.0</x>
+              <y>320.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>547.4337415130748</x>
+            <y>-1.689196675679996</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>c88d27ac-30cb-4ba9-acc0-404f7e15ec4a</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="42256d38-d3ba-4ac6-85a0-179e868fa486">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>displayDate</contextKey>
+          <expression id="3181678e-f691-4593-b056-def69c73c047">
+            <annotation></annotation>
+            <name>Result Field: Result</name>
+            <fieldName>Result</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="868fd1ce-d551-4a54-bdf6-f118696c07f2">
+      <annotation>db01d55b-8444-4080-ab30-f6199c840489.868fd1ce-d551-4a54-bdf6-f118696c07f2.description</annotation>
+      <name>Get Forecast by Day</name>
+      <bounds>
+        <x>420.0</x>
+        <y>30.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <iconSpec id="89e08c27-5939-40e9-a584-06e488a08b71">
+        <baseIcon>flow.png</baseIcon>
+        <basePath>System</basePath>
+        <readOnly>false</readOnly>
+        <layers/>
+      </iconSpec>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="cb9994a9-070e-4acd-a332-44582ac1233a">
+          <annotation></annotation>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>webserviceHost</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${SP_Us_Weather_Services_WebService_Host}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="26ea08de-b418-40b6-acd9-a3b1c9ddf492">
+          <annotation></annotation>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>webservicePort</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${SP_Us_Weather_Services_WebService_Port}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="831a94e8-2434-4fb0-9359-7c16231c285e">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>headers</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="6fe33c53-b3ff-4614-8e06-aafb625938d1">
+          <annotation></annotation>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxy</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${SP_Us_Weather_Services_Proxy_Host}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="cec7c94d-c4cc-4617-b192-a8bd6b58375e">
+          <annotation></annotation>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxyPort</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${SP_Us_Weather_Services_Proxy_Port}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="e6d25f23-e968-4dda-a2b6-e14bef33e613">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenByDay.Unit</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>e</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="1d95167d-13ff-4dd3-90dc-b460ab06eed9">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenByDay.format</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>24 hourly</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="2a8aeb86-21ba-48dc-b7ae-96723c6fcec6">
+          <annotation></annotation>
+          <toContextKey>latitude</toContextKey>
+          <fromContextKey>latitude</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>true</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenByDay.latitude</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="97134d76-01cf-456d-bf1e-6948460c49ef">
+          <annotation></annotation>
+          <toContextKey>longitude</toContextKey>
+          <fromContextKey>longitude</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>true</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenByDay.longitude</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="4d22d1a2-fab7-43d3-bc27-394065bdc9c3">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenByDay.numDays</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>1</value>
+          <record>false</record>
+        </staticBinding>
+        <userInputBinding id="0283b72e-ac54-428e-b06a-accd939a17f0">
+          <annotation></annotation>
+          <fromContextKey>rawDate</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>true</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenByDay.startDate</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <record>false</record>
+          <prompt>db01d55b-8444-4080-ab30-f6199c840489.0283b72e-ac54-428e-b06a-accd939a17f0.prompt</prompt>
+          <isMultiSelect>false</isMultiSelect>
+          <sourceDelimiter>|</sourceDelimiter>
+        </userInputBinding>
+      </bindings>
+      <transitions>
+        <transition id="a2447bd8-5036-4f27-bcaa-e3e5dd0a0e52">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>61d12543-9cf1-47bf-a9e4-29e6eb03ecad</refId>
+          </destination>
+          <source>
+            <refId>868fd1ce-d551-4a54-bdf6-f118696c07f2</refId>
+          </source>
+          <positions>
+            <point>
+              <x>470.0</x>
+              <y>64.0</y>
+            </point>
+            <point>
+              <x>170.0</x>
+              <y>184.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="4d36dd00-1ffc-4b5d-8739-438f64f35fbe">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>7240bd60-bae3-465b-8dc1-8a8c7453c0e0</refId>
+          </destination>
+          <source>
+            <refId>868fd1ce-d551-4a54-bdf6-f118696c07f2</refId>
+          </source>
+          <positions>
+            <point>
+              <x>491.94444444444446</x>
+              <y>96.0</y>
+            </point>
+            <point>
+              <x>540.0</x>
+              <y>120.0</y>
+            </point>
+            <point>
+              <x>470.0</x>
+              <y>200.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>554.7492380942294</x>
+            <y>0.4029002671672082</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>22b86b98-a9cc-476e-9ac2-9d5208e4105b</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="cc384b01-0683-4b62-b5af-29fcfd6cab67">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>summary</contextKey>
+          <expression id="af6af772-2384-4054-97a6-d3c41f2ee00a">
+            <annotation></annotation>
+            <name>Result Field: dwmlByDayOut</name>
+            <fieldName>dwmlByDayOut</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <replaceAllFilter id="745620cf-c23f-4a9f-b893-264f8abeb11f">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>&amp;lt;</searchString>
+                <replaceString>&lt;</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="000ba6a1-258c-4811-8db6-2511cb0c9158">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>&amp;gt;</searchString>
+                <replaceString>&gt;</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="93cabecf-d7c8-4413-9bb6-ffc14cc258ec">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>&amp;quot;</searchString>
+                <replaceString>&apos;</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <xpathFilter id="4f9154d4-7154-4885-9548-a7d16ece83be">
+                <annotation></annotation>
+                <name>XPath Query</name>
+                <xpathQuery>//@weather-summary</xpathQuery>
+              </xpathFilter>
+              <stripTrailingFilter id="e4f00173-f3a5-48bd-a203-cc6e13d6c8a5">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>&quot;</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+              <stripTrailingFilter id="aa99ec33-263c-4d03-a954-40a094cae887">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>&quot;</strip>
+                <type>ALL_CHARACTERS_AFTER_AND_INCLUDING</type>
+              </stripTrailingFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="5fb035ca-0d1a-448e-bd11-24b3b54beee6">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>precipPct</contextKey>
+          <expression id="d0b31d7c-56ef-46ca-9522-7fb13d544664">
+            <annotation></annotation>
+            <name>Result Field: dwmlByDayOut</name>
+            <fieldName>dwmlByDayOut</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <replaceAllFilter id="d68f50a0-4ea6-4a28-8c02-972e7f17295d">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>&amp;lt;</searchString>
+                <replaceString>&lt;</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="bbc0a083-d2a4-4e0a-a0a4-866e6e67b7c1">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>&amp;gt;</searchString>
+                <replaceString>&gt;</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="6139b02e-0254-4423-88d1-2e6e5e16ed4b">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>&amp;quot;</searchString>
+                <replaceString>&apos;</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <xmlGetElementValueFilter id="1ddedeb5-68fe-4615-a6f0-e2299421f5d1">
+                <annotation></annotation>
+                <name>XML Get Element Value</name>
+                <elementPath>/dwml/data/parameters/probability-of-precipitation/value</elementPath>
+              </xmlGetElementValueFilter>
+              <stripTrailingFilter id="50728cdf-5645-4642-bf80-83085ba84d37">
+                <annotation></annotation>
+                <name>Strip</name>
+                <strip>,</strip>
+                <type>ALL_CHARACTERS_UP_TO_AND_INCLUDING</type>
+              </stripTrailingFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="53b54e7b-c12f-4d7c-86f0-6f8634c5fdce">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>temperature</contextKey>
+          <expression id="3d07d7b5-b33d-412c-99b6-a21613428097">
+            <annotation></annotation>
+            <name>Result Field: dwmlByDayOut</name>
+            <fieldName>dwmlByDayOut</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <replaceAllFilter id="e1fca060-0722-4b80-a978-0324509352ca">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>&amp;lt;</searchString>
+                <replaceString>&lt;</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="8c36926d-6349-41f8-b5f2-bcc077c2b8e7">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>&amp;gt;</searchString>
+                <replaceString>&gt;</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <replaceAllFilter id="3db42830-7642-4737-a8cc-1984de1c53bf">
+                <annotation></annotation>
+                <name>Replace</name>
+                <ignoreCase>false</ignoreCase>
+                <searchString>&amp;quot;</searchString>
+                <replaceString>&apos;</replaceString>
+                <replaceType>ALL</replaceType>
+              </replaceAllFilter>
+              <xmlGetElementValueFilter id="e1e23629-faa5-4b88-b629-3008371b5ac6">
+                <annotation></annotation>
+                <name>XML Get Element Value</name>
+                <elementPath>/dwml/data/parameters/temperature/value</elementPath>
+              </xmlGetElementValueFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <step id="3c0d700f-5f57-4414-bb8d-e9400320bca4">
+      <annotation></annotation>
+      <name>Get Current Date</name>
+      <bounds>
+        <x>210.0</x>
+        <y>30.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>false</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>true</checkPointStep>
+      <historyCheckPointStep>true</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="358ce3c1-ae40-431e-847a-f83bc55f55fb">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>868fd1ce-d551-4a54-bdf6-f118696c07f2</refId>
+          </destination>
+          <source>
+            <refId>3c0d700f-5f57-4414-bb8d-e9400320bca4</refId>
+          </source>
+          <positions>
+            <point>
+              <x>260.0</x>
+              <y>64.0</y>
+            </point>
+            <point>
+              <x>470.0</x>
+              <y>64.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+        <transition id="43104615-a798-4fea-aa70-184d412b42e1">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>61d12543-9cf1-47bf-a9e4-29e6eb03ecad</refId>
+          </destination>
+          <source>
+            <refId>3c0d700f-5f57-4414-bb8d-e9400320bca4</refId>
+          </source>
+          <positions>
+            <point>
+              <x>255.44444444444446</x>
+              <y>96.0</y>
+            </point>
+            <point>
+              <x>180.0</x>
+              <y>120.0</y>
+            </point>
+            <point>
+              <x>170.0</x>
+              <y>200.0</y>
+            </point>
+          </positions>
+          <labelPosition>
+            <x>333.0</x>
+            <y>0.0</y>
+          </labelPosition>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>3e53f8ba-6de9-4404-ba19-e1ba7adfce23</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="cd83f3fb-8b9d-4c93-83f4-0ea6bf8d9c17">
+          <annotation></annotation>
+          <name>assignment</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_VARIABLE</assignmentTargetType>
+          <contextKey>rawDate</contextKey>
+          <expression id="9c5095be-97dd-45a5-9c22-f804ad0a5012">
+            <annotation></annotation>
+            <name>Result Field: startDate</name>
+            <fieldName>startDate</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+  </steps>
+  <startSteps>0f33fbea-968c-480f-be29-7101838d274c</startSteps>
+</flow>

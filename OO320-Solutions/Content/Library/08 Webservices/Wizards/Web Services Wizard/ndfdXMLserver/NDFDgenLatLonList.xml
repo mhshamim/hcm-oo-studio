@@ -1,0 +1,2314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow id="1214553a-60db-4816-a6f7-38211371597f">
+  <descriptionCdata><![CDATA[1214553a-60db-4816-a6f7-38211371597f.description=<pre>\nThis subflow was created by the Web Services Wizard to invoke the NDFDgenLatLonList operation on http\://graphical.weather.gov/xml/SOAP_server/ndfdXMLserver.php?wsdl. Note that the inputs to this flow which correspond to web service inputs are optional inputs.  This is due to the fact that web services definitions usually incorrectly indicate that too many inputs are required, and mirroring those settings in the flow would force you to enter unused values when running the flow.  The xmlTemplate input on the Invoke Method 2 step of this flow contains a template of the xml message to be sent, and the fields preceded by the comment "<\!--Optional\:-->" or "<\!--zero or more repetitions-->" are those which the web service indicates are optional; all others are indicated to be required.\n\nInputs\:\n    webserviceHost - The host that is running the web service\n    webservicePort - The port on the host running the web service\n    headers - The list containing the headers to use for the request separated by new line (CRLF).The header name - value pair will be separated by "\:".\nFormat\: Conforming with HTTP standard for headers (RFC 2616).\nExamples\: Accept-Language\:en\n    proxy - The port on the host running the web service.\n    proxyPort - A port on the proxy to connect to.\n    NDFDgenLatLonList.Unit - The input named NDFDgenLatLonList|Unit of the complex type\: NDFDgenLatLonList\n    NDFDgenLatLonList.endTime - The input named NDFDgenLatLonList|endTime of the complex type\: NDFDgenLatLonList\n    NDFDgenLatLonList.listLatLon - The input named NDFDgenLatLonList|listLatLon of the complex type\: NDFDgenLatLonList\n    NDFDgenLatLonList.product - The input named NDFDgenLatLonList|product of the complex type\: NDFDgenLatLonList\n    NDFDgenLatLonList.startTime - The input named NDFDgenLatLonList|startTime of the complex type\: NDFDgenLatLonList\n    NDFDgenLatLonList.weatherParameters.appt - The input named NDFDgenLatLonList|weatherParameters|appt of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.conhazo - The input named NDFDgenLatLonList|weatherParameters|conhazo of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.critfireo - The input named NDFDgenLatLonList|weatherParameters|critfireo of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.cumw34 - The input named NDFDgenLatLonList|weatherParameters|cumw34 of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.cumw50 - The input named NDFDgenLatLonList|weatherParameters|cumw50 of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.cumw64 - The input named NDFDgenLatLonList|weatherParameters|cumw64 of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.dew - The input named NDFDgenLatLonList|weatherParameters|dew of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.dryfireo - The input named NDFDgenLatLonList|weatherParameters|dryfireo of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.iceaccum - The input named NDFDgenLatLonList|weatherParameters|iceaccum of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.icons - The input named NDFDgenLatLonList|weatherParameters|icons of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.incw34 - The input named NDFDgenLatLonList|weatherParameters|incw34 of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.incw50 - The input named NDFDgenLatLonList|weatherParameters|incw50 of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.incw64 - The input named NDFDgenLatLonList|weatherParameters|incw64 of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.maxt - The input named NDFDgenLatLonList|weatherParameters|maxt of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.mint - The input named NDFDgenLatLonList|weatherParameters|mint of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.phail - The input named NDFDgenLatLonList|weatherParameters|phail of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.pop12 - The input named NDFDgenLatLonList|weatherParameters|pop12 of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.prcpabv14d - The input named NDFDgenLatLonList|weatherParameters|prcpabv14d of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.prcpabv30d - The input named NDFDgenLatLonList|weatherParameters|prcpabv30d of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.prcpabv90d - The input named NDFDgenLatLonList|weatherParameters|prcpabv90d of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.prcpblw14d - The input named NDFDgenLatLonList|weatherParameters|prcpblw14d of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.prcpblw30d - The input named NDFDgenLatLonList|weatherParameters|prcpblw30d of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.prcpblw90d - The input named NDFDgenLatLonList|weatherParameters|prcpblw90d of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.precipa_r - The input named NDFDgenLatLonList|weatherParameters|precipa_r of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.ptornado - The input named NDFDgenLatLonList|weatherParameters|ptornado of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.ptotsvrtstm - The input named NDFDgenLatLonList|weatherParameters|ptotsvrtstm of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.ptstmwinds - The input named NDFDgenLatLonList|weatherParameters|ptstmwinds of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.pxhail - The input named NDFDgenLatLonList|weatherParameters|pxhail of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.pxtornado - The input named NDFDgenLatLonList|weatherParameters|pxtornado of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.pxtotsvrtstm - The input named NDFDgenLatLonList|weatherParameters|pxtotsvrtstm of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.pxtstmwinds - The input named NDFDgenLatLonList|weatherParameters|pxtstmwinds of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.qpf - The input named NDFDgenLatLonList|weatherParameters|qpf of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.rh - The input named NDFDgenLatLonList|weatherParameters|rh of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.sky - The input named NDFDgenLatLonList|weatherParameters|sky of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.sky_r - The input named NDFDgenLatLonList|weatherParameters|sky_r of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.snow - The input named NDFDgenLatLonList|weatherParameters|snow of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.td_r - The input named NDFDgenLatLonList|weatherParameters|td_r of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.temp - The input named NDFDgenLatLonList|weatherParameters|temp of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.temp_r - The input named NDFDgenLatLonList|weatherParameters|temp_r of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.tmpabv14d - The input named NDFDgenLatLonList|weatherParameters|tmpabv14d of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.tmpabv30d - The input named NDFDgenLatLonList|weatherParameters|tmpabv30d of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.tmpabv90d - The input named NDFDgenLatLonList|weatherParameters|tmpabv90d of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.tmpblw14d - The input named NDFDgenLatLonList|weatherParameters|tmpblw14d of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.tmpblw30d - The input named NDFDgenLatLonList|weatherParameters|tmpblw30d of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.tmpblw90d - The input named NDFDgenLatLonList|weatherParameters|tmpblw90d of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.waveh - The input named NDFDgenLatLonList|weatherParameters|waveh of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.wdir - The input named NDFDgenLatLonList|weatherParameters|wdir of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.wdir_r - The input named NDFDgenLatLonList|weatherParameters|wdir_r of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.wgust - The input named NDFDgenLatLonList|weatherParameters|wgust of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.wspd - The input named NDFDgenLatLonList|weatherParameters|wspd of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.wspd_r - The input named NDFDgenLatLonList|weatherParameters|wspd_r of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.wwa - The input named NDFDgenLatLonList|weatherParameters|wwa of the complex type\: NDFDgenLatLonList|weatherParameters\n    NDFDgenLatLonList.weatherParameters.wx - The input named NDFDgenLatLonList|weatherParameters|wx of the complex type\: NDFDgenLatLonList|weatherParameters\n\nResults\:\n    document - The raw XML response of the web service\n    documentStripped - The XML response of the web service stripped of namespaces\n    responseHeaders - The list containing the headers of the response message, separated by newline.\nFormat\: This is conforming with HTTP standard for headers (RFC 2616).\nExample\: Content-Type\: text/xml;charset\=utf-8\n               Transfer-Encoding\: chunkedWebServiceWizard.repo.successDesc\=The SOAP command was accepted by the web service\n    dwmlOut - The output given by the XPath\: /Envelope/Body/NDFDgenLatLonListResponse/dwmlOut/text()\n\nResponses\:\n    success - The SOAP command was accepted by the web service\n    failure - Something went wrong while making the SOAP request\n</pre>
+1214553a-60db-4816-a6f7-38211371597f.ea949708-7b2f-4c1a-bb24-831159393282.description=<pre>\nThe operation invokes web service methods.  This operation should not be used directly\!  Please use the wizard to build flows that use this operation.\n\nInputs\:\n    xmlTemplate - The template of the soap request to make.\n    inputMap - A map used to map between template names and user-friendly names. The template names are pipe-delimited xpaths of the xmltemplate location, with a numerical element for lists.\nValue format\: A list of elements separated by the new line delimiter. Eache element hes the format\: <name>\=<new name>.\nExample\: A line in the "inputMap" could be\: "Request|Details|0|Input|x\=input0.x"\n    url - The url to Post to. \n    header_SOAPAction - The SOAPAction http header field, defined by many web services for indicating the intent of the request\n    wswAuthenticationType - The authentication type to use for the "username" and "password" input.\nDefault value\: http\nValid values\: http, ntlm, ws-security digest, ws-security text\n    WSSecuritySignRequest - Should the SOAP request be signed using WS-Security.\nDefault value\: false\nValid values true, false\n    WSSecurityEncryptRequest - Should the entire SOAP request be signed using WS-Security.\nDefault value\: false\nValid values true, false\n    WSSecurityTimestampRequest - Should the Timestamp attribute be added to the WS-Security header\nDefault value\: false\nValid values true, false\n    WSSecurityKeystore - Keystore to use for encrypting and signing requests.\n    WSSecurityKeystoreType - The type of "WSSecurityKeystore".\n    WSSecurityKeystorePassword - The password for "WSSecurityKeystore".\n    headers - The list containing the headers to use for the request separated by new line (CRLF).The header name - value pair will be separated by "\:".\nFormat\: Conforming with HTTP standard for headers (RFC 2616).\nExamples\: Accept-Language\:en\n    contentType - Value to be used in the Content-Type HTTP header. If Content-Type header is also passed in "headers" input, the "contentType" input will override the value provided in "headers".\nDefault value\: text/xml\n    characterSet - The character set for HTTP Get request and response.\nDefault value\: UTF-8\n    username - The username to use for authenticating with the web service.\nValue format\: For NTLM authentication, the required format is domain\\user.\n    password - The password to use for authenticating with the web service.\n    trustAllRoots - Enables weak security over SSL. A SSH certificate is trusted even if no trusted CA issued it.\nDefault value\: false\nValid values\: true, false\n    useCookies - Enables cookie tracking. Cookies will be stored between consecutive calls.\nDefault value\: false\nValid values\: true, false\n    usesJSON - Use JSON arrays for the SOAP Request for all Array types.\nDefault value\: false\nValid values\: true, false\n    timeout - a timeout after which the connection should be terminated or 0 for no timeout.\n    socketTimeout - The time to wait for data to be retrieved, in milliseconds. This input needs a value greater than or equal to zero. A "socketTimeout" value of '0' represents an infinite timeout.\nDefault value\: 0\n    proxy - A proxy to use when accessing the web service.\n    proxyPort - A port on the proxy to connect to.\n    proxyUsername - A username to use when connecting to the proxy.\n    proxyPassword - A password to use when connecting to the proxy.\n    keystore - The path to the keystore to use for SSL Client Certificates when using http authentication.\n    keystorePassword - The password for the keystore when using http authentication.\n    ICONCLUDE_WSW_VERSION - This value is used internally by the operation.\n    returnXMLRequest - If this input is set to true, a new output named "rawXMLRequest" is returned from the operation which contains the text of the SOAP request that will be sent. This can be very valuable in troubleshooting.\nDefault value\: false\nValid values\: true, false\n\nResults\:\n    returnCode - This is the primary output. It contains the value 0 if the operation successfully completes and the value -1 otherwise.\n    document - Raw XML response.\n    documentStripped - Raw XML response stripped of namespaces for ease in parsing with XML XPath operations.\n    jsonStripped - Raw XML response stripped of namespaces for ease in parsing with JSON operations, input usesJSON must be set to true for this to be populated.\n    responseHeaders - The list containing the headers of the response message, separated by newline.\nFormat\: This is conforming with HTTP standard for headers (RFC 2616).\nExample\: Content-Type\: text/xml;charset\=utf-8\n              Transfer-Encoding\: chunked\n\nResponses\:\n    success - SOAP request completed successfully.\n    failure - Something went wrong.\n\nNotes\:\n1.If wswAuthenticationType\=ws-security text then this operation transmits passwords in clear-text.\n2.Any additional inputs that follow these are added by the Web Service Wizard, and they are specific to the particular web service method being called.\n3.If you add new step-level inputs with the name header_<headername>, where <headername> is the name of an html header, then that html header will be set to the given value in the HTTP request.\n4.This operation will not allow connection through secure transport layers below TLS 1.0.\n</pre>
+]]></descriptionCdata>
+  <annotation>1214553a-60db-4816-a6f7-38211371597f.description</annotation>
+  <name>NDFDgenLatLonList</name>
+  <categories/>
+  <inputs>
+    <staticBinding id="fb75d487-2f94-41dc-b1ac-4e440861a803">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>webserviceHost</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>${SP_Us_Weather_Services_WebService_Host}</value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="507b8857-acd8-45ea-bf3d-490e196437ea">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>webservicePort</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>${SP_Us_Weather_Services_WebService_Port}</value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="e8b29ea9-7619-442b-ae3b-59a4a4748e49">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>headers</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="876d8eb5-76f4-432e-9910-5c179f79479d">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>proxy</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>${SP_Us_Weather_Services_Proxy_Host}</value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="39de2375-3766-4806-bdd2-596313881728">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>proxyPort</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>${SP_Us_Weather_Services_Proxy_Port}</value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="43cf542c-cec4-4fe3-a786-431a36f5983f">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.Unit</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="c53acbe8-10be-4f0b-86f6-843b89550e81">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.endTime</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="144c4941-5b36-418a-b53f-44e474eef1b6">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.listLatLon</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="073df33a-cc20-4d85-a6ea-b8b1900b2056">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.product</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="c2ae21bf-8b6c-45b2-9cd3-bc030dbd68fa">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.startTime</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="1a7c7907-4543-49a2-af17-c0dc422923b7">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.appt</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="07456bcc-aa1d-4472-9c88-2f3b68b6864b">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.conhazo</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="f82fc47e-4695-41e1-9b8a-bc4ebcab9895">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.critfireo</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="d9bb337f-ef5b-4663-8df9-3a784ec27414">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.cumw34</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="4fba88e9-53ea-44b6-aa65-9ef29487ce92">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.cumw50</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="0dcdf2c6-dec2-458e-bef5-919cf99bb506">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.cumw64</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="041986b0-565a-4df1-9f93-0e48697de09d">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.dew</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="07af19d2-bd0a-4030-bd02-8aa89226f73a">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.dryfireo</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="efe43daf-4cf2-4d8a-a5bb-cedad195cd1f">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.iceaccum</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="675bbc83-02a4-4459-aab4-6ca38c4561ba">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.icons</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="0465938f-e10b-4a91-b849-85bb09ab78af">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.incw34</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="7232a0bb-5975-40ed-be39-be27a4ebf335">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.incw50</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="6106ce18-36ce-4ae4-bbd4-ce75712fe03c">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.incw64</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="19237202-60a5-4354-9d90-b5c1e9c5761d">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.maxt</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="97a74b22-2eb0-41e1-875a-918b404bb898">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.mint</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="9b0c00f3-858a-4cd7-a628-dcc74afbef3a">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.phail</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="5b0daa86-eda6-435e-b405-039aeac212cd">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.pop12</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="d403c638-a235-4c3a-8aeb-a417028fad97">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.prcpabv14d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="1ef1eac9-e3f5-480e-8d61-551da4041ebf">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.prcpabv30d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="0a9d8a41-5c79-46d8-b998-4c6ba127c74d">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.prcpabv90d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="a6511b06-8635-4387-8381-b8cecd114ef8">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.prcpblw14d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="4dd19b63-dbff-4f0a-b690-3791f7cda4b7">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.prcpblw30d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="bc8b3f36-56f7-4a31-a608-37e48e47d468">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.prcpblw90d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="6f2f88ec-8f9f-446a-a83c-6e3d9ffaad75">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.precipa_r</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="33ff1ace-e56e-4dec-b2ae-5eaaf52a1913">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.ptornado</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="cf58ef01-2666-4d2e-a38c-69b4cd899ef7">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.ptotsvrtstm</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="270a10dd-b500-45f0-bacc-61572da24058">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.ptstmwinds</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="f63d3910-c343-41c9-b891-53047dd63a37">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.pxhail</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="a1ea1cbb-cc1a-468a-8576-72ea85d38e58">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.pxtornado</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="4cad5ae8-b5d4-4532-99ac-b8e6498b2a02">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.pxtotsvrtstm</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="1aa97f65-5296-46dc-a1fd-771834777e61">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.pxtstmwinds</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="22f55308-3f58-4f11-867f-922fcffade01">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.qpf</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="e98ff69d-79e4-4b02-b801-7689e587f7b3">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.rh</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="8d8e977d-5fd1-46cd-8c75-34160ce8b84c">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.sky</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="160f8950-b7ba-4ad6-9418-5ad3927c9fac">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.sky_r</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="119bc7e8-a43b-409f-a925-7edb29eb6130">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.snow</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="688e41f3-d0a7-416c-80ef-9f8c78c9ce30">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.td_r</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="fce0f84c-e8db-4240-b245-58082bebf8f4">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.temp</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="281828b1-573e-4282-aa89-3adc9ed96d7c">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.temp_r</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="4dce24a2-1f88-444a-a32b-3225b22dac8f">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.tmpabv14d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="62e1f84a-dc35-4a34-99ea-aee28f1415a0">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.tmpabv30d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="99d3bcd4-bfb5-493a-aaeb-bafe4f5b33ce">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.tmpabv90d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="50702b35-d980-411e-9147-90745ee3a15d">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.tmpblw14d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="8d427618-e9f7-4b11-863b-49b8f34d3e0c">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.tmpblw30d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="ce9ba6e6-2173-429a-93ef-08dabf4463c5">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.tmpblw90d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="b6fd3db8-8562-4f4a-a3f5-912dc9383dad">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.waveh</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="4517f5fa-ae8e-4c48-bcc3-0c6faf6279f8">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.wdir</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="ee7a773f-e001-4e37-891a-3764156c2f9c">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.wdir_r</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="944f16cd-4f8a-42b5-ad8c-e65b223cbba5">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.wgust</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="905b9eaf-cbcb-4182-aa10-1cb22be2297c">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.wspd</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="573e5bcb-dacb-4b27-9df9-0c4f2e9357ce">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.wspd_r</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="6c99e023-1f40-42ab-b5f7-3a8cfd1fe27b">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.wwa</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="f4bcdf15-a8cf-4776-b9e0-23d8e7047edc">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>NDFDgenLatLonList.weatherParameters.wx</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="96b26644-8821-401d-99c8-ce7c07927bf2">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="27f780bb-2790-403d-9c6a-55cb8ab92641">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="973a5d97-bf4e-4e65-a322-b37f1321ca60">
+    <annotation></annotation>
+    <name>document</name>
+    <fieldName>document</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="86bd8e9d-f646-4b2c-8439-00d5b4cf4ea7">
+    <baseIcon>flow.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <callouts/>
+  <checkPointFlow>false</checkPointFlow>
+  <compatibleRuntimeContext>false</compatibleRuntimeContext>
+  <historyCheckPointFlow>false</historyCheckPointFlow>
+  <steps>
+    <step id="ea949708-7b2f-4c1a-bb24-831159393282">
+      <annotation>1214553a-60db-4816-a6f7-38211371597f.ea949708-7b2f-4c1a-bb24-831159393282.description</annotation>
+      <name>Invoke Method 2</name>
+      <bounds>
+        <x>0.0</x>
+        <y>0.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>true</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>false</checkPointStep>
+      <historyCheckPointStep>false</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <resultContextKey>Invoke Method 2</resultContextKey>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="dfe02576-ee24-4586-8871-47670bff4ae6">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>url</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>https://${webserviceHost}:${webservicePort}/xml/SOAP_server/ndfdXMLserver.php</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="8ef5e501-dbc5-4747-8a72-f5004cfd92a6">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>xmlTemplate</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>&lt;soapenv:Envelope xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:ndf=&quot;https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl&quot;&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;ndf:NDFDgenLatLonList soapenv:encodingStyle=&quot;http://schemas.xmlsoap.org/soap/encoding/&quot;&gt;
+         &lt;listLatLon xsi:type=&quot;xsd:string&quot;&gt;?&lt;/listLatLon&gt;
+         &lt;product xsi:type=&quot;xsd:string&quot;&gt;?&lt;/product&gt;
+         &lt;startTime xsi:type=&quot;xsd:dateTime&quot;&gt;?&lt;/startTime&gt;
+         &lt;endTime xsi:type=&quot;xsd:dateTime&quot;&gt;?&lt;/endTime&gt;
+         &lt;Unit xsi:type=&quot;xsd:string&quot;&gt;?&lt;/Unit&gt;
+         &lt;weatherParameters xsi:type=&quot;ndf:weatherParametersType&quot;&gt;
+            &lt;!--You may enter the following 53 items in any order--&gt;
+            &lt;maxt xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/maxt&gt;
+            &lt;mint xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/mint&gt;
+            &lt;temp xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/temp&gt;
+            &lt;dew xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/dew&gt;
+            &lt;pop12 xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/pop12&gt;
+            &lt;qpf xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/qpf&gt;
+            &lt;sky xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/sky&gt;
+            &lt;snow xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/snow&gt;
+            &lt;wspd xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/wspd&gt;
+            &lt;wdir xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/wdir&gt;
+            &lt;wx xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/wx&gt;
+            &lt;waveh xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/waveh&gt;
+            &lt;icons xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/icons&gt;
+            &lt;rh xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/rh&gt;
+            &lt;appt xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/appt&gt;
+            &lt;incw34 xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/incw34&gt;
+            &lt;incw50 xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/incw50&gt;
+            &lt;incw64 xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/incw64&gt;
+            &lt;cumw34 xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/cumw34&gt;
+            &lt;cumw50 xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/cumw50&gt;
+            &lt;cumw64 xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/cumw64&gt;
+            &lt;critfireo xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/critfireo&gt;
+            &lt;dryfireo xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/dryfireo&gt;
+            &lt;conhazo xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/conhazo&gt;
+            &lt;ptornado xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/ptornado&gt;
+            &lt;phail xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/phail&gt;
+            &lt;ptstmwinds xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/ptstmwinds&gt;
+            &lt;pxtornado xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/pxtornado&gt;
+            &lt;pxhail xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/pxhail&gt;
+            &lt;pxtstmwinds xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/pxtstmwinds&gt;
+            &lt;ptotsvrtstm xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/ptotsvrtstm&gt;
+            &lt;pxtotsvrtstm xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/pxtotsvrtstm&gt;
+            &lt;tmpabv14d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/tmpabv14d&gt;
+            &lt;tmpblw14d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/tmpblw14d&gt;
+            &lt;tmpabv30d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/tmpabv30d&gt;
+            &lt;tmpblw30d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/tmpblw30d&gt;
+            &lt;tmpabv90d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/tmpabv90d&gt;
+            &lt;tmpblw90d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/tmpblw90d&gt;
+            &lt;prcpabv14d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/prcpabv14d&gt;
+            &lt;prcpblw14d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/prcpblw14d&gt;
+            &lt;prcpabv30d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/prcpabv30d&gt;
+            &lt;prcpblw30d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/prcpblw30d&gt;
+            &lt;prcpabv90d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/prcpabv90d&gt;
+            &lt;prcpblw90d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/prcpblw90d&gt;
+            &lt;precipa_r xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/precipa_r&gt;
+            &lt;sky_r xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/sky_r&gt;
+            &lt;temp_r xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/temp_r&gt;
+            &lt;td_r xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/td_r&gt;
+            &lt;wdir_r xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/wdir_r&gt;
+            &lt;wspd_r xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/wspd_r&gt;
+            &lt;wwa xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/wwa&gt;
+            &lt;wgust xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/wgust&gt;
+            &lt;iceaccum xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/iceaccum&gt;
+         &lt;/weatherParameters&gt;
+      &lt;/ndf:NDFDgenLatLonList&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="34f1a266-46e2-4ee5-86e2-20875e83645a">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>header_SOAPAction</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#NDFDgenLatLonList</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="06e43b48-5d4c-44c4-b9e9-0033a0455bf9">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>inputMap</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>NDFDgenLatLonList|Unit=NDFDgenLatLonList.Unit
+NDFDgenLatLonList|endTime=NDFDgenLatLonList.endTime
+NDFDgenLatLonList|listLatLon=NDFDgenLatLonList.listLatLon
+NDFDgenLatLonList|product=NDFDgenLatLonList.product
+NDFDgenLatLonList|startTime=NDFDgenLatLonList.startTime
+NDFDgenLatLonList|weatherParameters|appt=NDFDgenLatLonList.weatherParameters.appt
+NDFDgenLatLonList|weatherParameters|conhazo=NDFDgenLatLonList.weatherParameters.conhazo
+NDFDgenLatLonList|weatherParameters|critfireo=NDFDgenLatLonList.weatherParameters.critfireo
+NDFDgenLatLonList|weatherParameters|cumw34=NDFDgenLatLonList.weatherParameters.cumw34
+NDFDgenLatLonList|weatherParameters|cumw50=NDFDgenLatLonList.weatherParameters.cumw50
+NDFDgenLatLonList|weatherParameters|cumw64=NDFDgenLatLonList.weatherParameters.cumw64
+NDFDgenLatLonList|weatherParameters|dew=NDFDgenLatLonList.weatherParameters.dew
+NDFDgenLatLonList|weatherParameters|dryfireo=NDFDgenLatLonList.weatherParameters.dryfireo
+NDFDgenLatLonList|weatherParameters|iceaccum=NDFDgenLatLonList.weatherParameters.iceaccum
+NDFDgenLatLonList|weatherParameters|icons=NDFDgenLatLonList.weatherParameters.icons
+NDFDgenLatLonList|weatherParameters|incw34=NDFDgenLatLonList.weatherParameters.incw34
+NDFDgenLatLonList|weatherParameters|incw50=NDFDgenLatLonList.weatherParameters.incw50
+NDFDgenLatLonList|weatherParameters|incw64=NDFDgenLatLonList.weatherParameters.incw64
+NDFDgenLatLonList|weatherParameters|maxt=NDFDgenLatLonList.weatherParameters.maxt
+NDFDgenLatLonList|weatherParameters|mint=NDFDgenLatLonList.weatherParameters.mint
+NDFDgenLatLonList|weatherParameters|phail=NDFDgenLatLonList.weatherParameters.phail
+NDFDgenLatLonList|weatherParameters|pop12=NDFDgenLatLonList.weatherParameters.pop12
+NDFDgenLatLonList|weatherParameters|prcpabv14d=NDFDgenLatLonList.weatherParameters.prcpabv14d
+NDFDgenLatLonList|weatherParameters|prcpabv30d=NDFDgenLatLonList.weatherParameters.prcpabv30d
+NDFDgenLatLonList|weatherParameters|prcpabv90d=NDFDgenLatLonList.weatherParameters.prcpabv90d
+NDFDgenLatLonList|weatherParameters|prcpblw14d=NDFDgenLatLonList.weatherParameters.prcpblw14d
+NDFDgenLatLonList|weatherParameters|prcpblw30d=NDFDgenLatLonList.weatherParameters.prcpblw30d
+NDFDgenLatLonList|weatherParameters|prcpblw90d=NDFDgenLatLonList.weatherParameters.prcpblw90d
+NDFDgenLatLonList|weatherParameters|precipa_r=NDFDgenLatLonList.weatherParameters.precipa_r
+NDFDgenLatLonList|weatherParameters|ptornado=NDFDgenLatLonList.weatherParameters.ptornado
+NDFDgenLatLonList|weatherParameters|ptotsvrtstm=NDFDgenLatLonList.weatherParameters.ptotsvrtstm
+NDFDgenLatLonList|weatherParameters|ptstmwinds=NDFDgenLatLonList.weatherParameters.ptstmwinds
+NDFDgenLatLonList|weatherParameters|pxhail=NDFDgenLatLonList.weatherParameters.pxhail
+NDFDgenLatLonList|weatherParameters|pxtornado=NDFDgenLatLonList.weatherParameters.pxtornado
+NDFDgenLatLonList|weatherParameters|pxtotsvrtstm=NDFDgenLatLonList.weatherParameters.pxtotsvrtstm
+NDFDgenLatLonList|weatherParameters|pxtstmwinds=NDFDgenLatLonList.weatherParameters.pxtstmwinds
+NDFDgenLatLonList|weatherParameters|qpf=NDFDgenLatLonList.weatherParameters.qpf
+NDFDgenLatLonList|weatherParameters|rh=NDFDgenLatLonList.weatherParameters.rh
+NDFDgenLatLonList|weatherParameters|sky=NDFDgenLatLonList.weatherParameters.sky
+NDFDgenLatLonList|weatherParameters|sky_r=NDFDgenLatLonList.weatherParameters.sky_r
+NDFDgenLatLonList|weatherParameters|snow=NDFDgenLatLonList.weatherParameters.snow
+NDFDgenLatLonList|weatherParameters|td_r=NDFDgenLatLonList.weatherParameters.td_r
+NDFDgenLatLonList|weatherParameters|temp=NDFDgenLatLonList.weatherParameters.temp
+NDFDgenLatLonList|weatherParameters|temp_r=NDFDgenLatLonList.weatherParameters.temp_r
+NDFDgenLatLonList|weatherParameters|tmpabv14d=NDFDgenLatLonList.weatherParameters.tmpabv14d
+NDFDgenLatLonList|weatherParameters|tmpabv30d=NDFDgenLatLonList.weatherParameters.tmpabv30d
+NDFDgenLatLonList|weatherParameters|tmpabv90d=NDFDgenLatLonList.weatherParameters.tmpabv90d
+NDFDgenLatLonList|weatherParameters|tmpblw14d=NDFDgenLatLonList.weatherParameters.tmpblw14d
+NDFDgenLatLonList|weatherParameters|tmpblw30d=NDFDgenLatLonList.weatherParameters.tmpblw30d
+NDFDgenLatLonList|weatherParameters|tmpblw90d=NDFDgenLatLonList.weatherParameters.tmpblw90d
+NDFDgenLatLonList|weatherParameters|waveh=NDFDgenLatLonList.weatherParameters.waveh
+NDFDgenLatLonList|weatherParameters|wdir=NDFDgenLatLonList.weatherParameters.wdir
+NDFDgenLatLonList|weatherParameters|wdir_r=NDFDgenLatLonList.weatherParameters.wdir_r
+NDFDgenLatLonList|weatherParameters|wgust=NDFDgenLatLonList.weatherParameters.wgust
+NDFDgenLatLonList|weatherParameters|wspd=NDFDgenLatLonList.weatherParameters.wspd
+NDFDgenLatLonList|weatherParameters|wspd_r=NDFDgenLatLonList.weatherParameters.wspd_r
+NDFDgenLatLonList|weatherParameters|wwa=NDFDgenLatLonList.weatherParameters.wwa
+NDFDgenLatLonList|weatherParameters|wx=NDFDgenLatLonList.weatherParameters.wx</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="6fb29d65-b020-40eb-b39d-d1a8534a9ed5">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>usesJSON</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="623050bd-353f-4fb7-b423-9ca2e382ff9d">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxy</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${proxy}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="4c708bb6-c28e-4d03-aed3-c85e3e97a742">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxyPort</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${proxyPort}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="d197b06e-ece3-436d-8b57-5a32ce557547">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>wswAuthenticationType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>http</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="dffe7672-c35f-4db4-85fb-49e8879acfbf">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecuritySignRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="599f6431-9d5f-41e5-9436-071e34590f17">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityEncryptRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="b556701c-26a1-4cee-a480-6edaa6c2c99d">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityTimestampRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="fb7fcd60-93d7-48eb-b3ca-b6295f1d8011">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityKeystore</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="333113a8-696d-4fcc-8cde-7b33bae6e454">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityKeystoreType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="e4761128-568a-4050-9c8d-1a5875acc135">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityKeystorePassword</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}tFQ2pnWYKQCGLnn/5LPzoA==</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="7712b595-4efd-4062-ba4a-be12d4c0a1c1">
+          <fromContextKey>headers</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>headers</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="c77abaa1-6802-4268-ac0c-3297614d7507">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>contentType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>text/xml</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ad608079-8944-4d94-b71f-23db4cf85057">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>characterSet</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>UTF-8</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="be9b1505-fb92-4ef3-af20-6a02a2d03dc1">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>username</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="7ab54d40-7a20-407e-b8bd-ee829945c933">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>password</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}tFQ2pnWYKQCGLnn/5LPzoA==</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="730fdab4-79d5-412f-a20f-d7dac33d346a">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>trustAllRoots</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="71d95302-fa32-4478-bb2a-97e92ee20b7e">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>useCookies</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="0a42d6c5-e06e-41ee-a9f0-3e1fa9812482">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>timeout</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="9e64f640-d0ee-4d56-8367-1a77deb45a8c">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>socketTimeout</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="7a47f7b2-c149-48ef-a301-a6c5827da655">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxyUsername</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="483610e5-7af3-4db2-89c6-6ffcf3173716">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxyPassword</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}tFQ2pnWYKQCGLnn/5LPzoA==</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="9d18c859-b71c-4b43-b179-5d0576465b79">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>keystore</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="daebb70a-f228-4406-af00-fa999f8a275c">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>keystorePassword</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}tFQ2pnWYKQCGLnn/5LPzoA==</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="4f375073-d533-44fd-bdb4-0ab20fd3c79c">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>ICONCLUDE_WSW_VERSION</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>2</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="25099944-7a09-474c-bf65-f58002769b0a">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>returnXMLRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="7743c247-ec4c-4c31-bbdd-6ce11e3e2107">
+          <fromContextKey>NDFDgenLatLonList.Unit</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.Unit</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="6a88e05b-caa7-4f41-bee0-13adcc6a1891">
+          <fromContextKey>NDFDgenLatLonList.endTime</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.endTime</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="d4141be6-1027-4503-89ed-9de39f178203">
+          <fromContextKey>NDFDgenLatLonList.listLatLon</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.listLatLon</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="f0ddd025-5554-4fe5-a5b0-9a84c6397b55">
+          <fromContextKey>NDFDgenLatLonList.product</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.product</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="08cd0574-bf65-4591-90d7-d233999f28bd">
+          <fromContextKey>NDFDgenLatLonList.startTime</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.startTime</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="e4de3e29-29cd-4588-8222-6ca897723cfc">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.appt</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.appt</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="aad38a59-250b-4ec8-9736-1b3af59c8d05">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.conhazo</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.conhazo</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="1f3d336b-ef6f-48b8-8f1c-43f1389a27dc">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.critfireo</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.critfireo</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="7261ca8a-7685-4d0c-9048-9573c95318b6">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.cumw34</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.cumw34</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="d9c35b8a-1852-4f66-bcb7-8956d25abf7a">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.cumw50</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.cumw50</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="b8a12470-d284-4580-b6d0-f31ebe90e86a">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.cumw64</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.cumw64</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="7c50b0d7-0364-4fae-8b7c-26adefe7d428">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.dew</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.dew</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="21281f31-a8fe-4f41-b7af-d5bf8075cd53">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.dryfireo</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.dryfireo</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="2971f91c-6aa8-4c82-bbf3-456e90cd5c60">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.iceaccum</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.iceaccum</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="720ef06f-f58a-435e-b32c-2a87395bd672">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.icons</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.icons</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="04e55e49-eaf1-4dcf-8c91-954a77c22a73">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.incw34</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.incw34</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="50c68309-f872-432e-9876-132740c7c56d">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.incw50</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.incw50</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="d9b14dd2-8b91-4cef-8c35-f818c4e95f7b">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.incw64</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.incw64</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="bbc12775-be14-42ee-bfd2-9bed75b33500">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.maxt</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.maxt</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="bc383f7b-5daa-490c-8039-13d991fe92c5">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.mint</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.mint</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="a134178d-4625-4511-9ee6-5b0117ceade3">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.phail</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.phail</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="30f99a2e-6989-4354-8022-539995bb14c4">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.pop12</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.pop12</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="af02747b-216b-4186-bef3-baf33a890028">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.prcpabv14d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.prcpabv14d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="820dc7a6-e90a-4195-a9bc-e4cfba0a817b">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.prcpabv30d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.prcpabv30d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="c11d1966-c84b-43ec-b632-9cff8d796b51">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.prcpabv90d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.prcpabv90d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="f5190171-edf7-4d3a-90f3-7fe36c8a37b0">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.prcpblw14d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.prcpblw14d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="1790d1c1-41e6-4621-8645-710cf5835b10">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.prcpblw30d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.prcpblw30d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="c36761f8-9441-4470-b0bb-c07e0ddc8993">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.prcpblw90d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.prcpblw90d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="a3cd1a52-4a1c-4ec9-98aa-6c964ad9f798">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.precipa_r</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.precipa_r</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="fc443de0-dbeb-4953-945f-760f3a5c0ec4">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.ptornado</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.ptornado</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="8ba2b83e-ce69-4b15-8a10-6fc5205620f6">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.ptotsvrtstm</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.ptotsvrtstm</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="94132d63-c296-4975-81d1-e0f110e22f48">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.ptstmwinds</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.ptstmwinds</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="76254a00-e11f-4cfd-aeaf-b33aec27d58f">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.pxhail</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.pxhail</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="3532cf78-1e78-41f8-9d30-35212701bb10">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.pxtornado</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.pxtornado</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="cd20e4ba-2961-471f-a68f-4f0890716845">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.pxtotsvrtstm</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.pxtotsvrtstm</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="c7991fa3-3ed7-4623-99f9-f98ad6ee6b91">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.pxtstmwinds</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.pxtstmwinds</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="91a0b751-1290-4030-8930-40f56f8727c7">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.qpf</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.qpf</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ccb4c80f-a131-4b32-b4c7-7d4773d86ed1">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.rh</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.rh</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="3424e6ff-14c8-410e-adc9-5a1e51b292a3">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.sky</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.sky</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="6836d9d3-4b8a-44ac-afe1-65995f7ce47b">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.sky_r</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.sky_r</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="d2e99d24-4592-452e-b4e3-8de35ecd1461">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.snow</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.snow</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="24fd1534-6dfa-40fd-a115-3db14cf3c146">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.td_r</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.td_r</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="1476c60c-cc8b-4597-ab08-c6c1fee20c4b">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.temp</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.temp</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="10101f45-4c94-4d9f-abdb-719ff12bb2b1">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.temp_r</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.temp_r</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="13a7c359-d432-40c9-aa10-bfdbaa5eb566">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.tmpabv14d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.tmpabv14d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="44439d93-a666-42b5-8413-0d32a64236b0">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.tmpabv30d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.tmpabv30d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="f2824e6c-a5a0-41dd-b684-1a2dacbaccb1">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.tmpabv90d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.tmpabv90d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="9252b6d5-fc4a-4881-90d1-8c5b6aa35e8a">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.tmpblw14d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.tmpblw14d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="1d0114b3-5bbe-454e-b41f-50d7db38efeb">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.tmpblw30d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.tmpblw30d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="4b6ca2f6-749e-437a-ad25-94ca61b1dc15">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.tmpblw90d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.tmpblw90d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="2def4a45-a56c-42dc-b002-5a6c1c9fbcd1">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.waveh</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.waveh</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="a4f31a74-39ab-4b13-bbe1-a77cd52d763a">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.wdir</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.wdir</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="408acaf9-26d4-47e7-a23d-6d84e24cda64">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.wdir_r</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.wdir_r</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="c5b43f08-10d9-4ac1-bf20-09f350fc5e8a">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.wgust</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.wgust</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="d85d5bef-8491-4d21-a1ca-0c95f0835740">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.wspd</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.wspd</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="231bd793-5958-4fae-9679-1d2b599b6515">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.wspd_r</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.wspd_r</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="439adf4b-52f3-4feb-a445-7d81057da548">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.wwa</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.wwa</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="c6d6b533-4ae0-4d14-bc1a-8980552a954e">
+          <fromContextKey>NDFDgenLatLonList.weatherParameters.wx</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>NDFDgenLatLonList.weatherParameters.wx</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="8be3e3c7-82b0-4b6f-ab32-8ee2cf6ffeef">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>81825d6c-c451-4060-aad7-c8854d23c5f7</refId>
+          </destination>
+          <source>
+            <refId>ea949708-7b2f-4c1a-bb24-831159393282</refId>
+          </source>
+          <positions/>
+        </transition>
+        <transition id="9734fdce-8e95-43f1-99d4-0425ac0a0031">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>a4bf507d-6758-4dcc-afc9-04a0eab59cc1</refId>
+          </destination>
+          <source>
+            <refId>ea949708-7b2f-4c1a-bb24-831159393282</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>962ffbf8-4105-46bb-8c71-84f037c4de61</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="d4df3dce-ada5-42c8-85ae-fbbb483d715f">
+          <annotation></annotation>
+          <name>document</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>document</contextKey>
+          <expression id="53d80cdb-a5de-40bc-8b8b-2d30810de0b6">
+            <annotation></annotation>
+            <name>document</name>
+            <fieldName>document</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="b415c723-27d0-45c1-b781-9703596f8012">
+          <annotation></annotation>
+          <name>documentStripped</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>documentStripped</contextKey>
+          <expression id="ee9096ed-badd-43f6-b968-2bac4aae6bde">
+            <annotation></annotation>
+            <name>documentStripped</name>
+            <fieldName>documentStripped</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="70351edc-6c74-4a4a-a6c0-993b5aa669f4">
+          <annotation></annotation>
+          <name>responseHeaders</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>responseHeaders</contextKey>
+          <expression id="c7090ebb-05ea-4e61-b0ae-97ba3804adeb">
+            <annotation></annotation>
+            <name>responseHeaders</name>
+            <fieldName>responseHeaders</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="9244cb50-d5fb-41dc-a76c-d30304a6852b">
+          <annotation></annotation>
+          <name>dwmlOut</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>dwmlOut</contextKey>
+          <expression id="442e696b-4a1f-475d-a70b-41fecc1b487e">
+            <annotation></annotation>
+            <name>documentStripped</name>
+            <fieldName>documentStripped</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <xpathFilter id="7285e44f-09e6-466f-8312-f0c99ef2f080">
+                <annotation></annotation>
+                <name></name>
+                <xpathQuery>/Envelope/Body/NDFDgenLatLonListResponse/dwmlOut/text()</xpathQuery>
+              </xpathFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="81825d6c-c451-4060-aad7-c8854d23c5f7">
+      <annotation></annotation>
+      <name>RESOLVED : success</name>
+      <bounds>
+        <x>0.0</x>
+        <y>150.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>true</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>false</checkPointStep>
+      <historyCheckPointStep>false</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <resultContextKey>RESOLVED : success</resultContextKey>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="a89b539c-8003-4734-b5e0-754ede8ef237">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>81825d6c-c451-4060-aad7-c8854d23c5f7</refId>
+          </destination>
+          <source>
+            <refId>81825d6c-c451-4060-aad7-c8854d23c5f7</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments/>
+    </returnStep>
+    <returnStep id="a4bf507d-6758-4dcc-afc9-04a0eab59cc1">
+      <annotation></annotation>
+      <name>ERROR : failure</name>
+      <bounds>
+        <x>150.0</x>
+        <y>150.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>true</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>false</checkPointStep>
+      <historyCheckPointStep>false</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <resultContextKey>ERROR : failure</resultContextKey>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="f63c1080-016a-4137-9537-1e75f5b0cce8">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>a4bf507d-6758-4dcc-afc9-04a0eab59cc1</refId>
+          </destination>
+          <source>
+            <refId>a4bf507d-6758-4dcc-afc9-04a0eab59cc1</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>ERROR</returnStepType>
+      <assignments/>
+    </returnStep>
+  </steps>
+  <startSteps>ea949708-7b2f-4c1a-bb24-831159393282</startSteps>
+</flow>

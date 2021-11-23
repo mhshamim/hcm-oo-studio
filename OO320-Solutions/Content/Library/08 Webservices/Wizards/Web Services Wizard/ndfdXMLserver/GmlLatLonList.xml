@@ -1,0 +1,2258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow id="6a8b6279-06c6-471c-aed0-a99ddc092e14">
+  <descriptionCdata><![CDATA[6a8b6279-06c6-471c-aed0-a99ddc092e14.63c2e96a-3a4d-43c0-867b-eb080b13ae80.description=<pre>\nThe operation invokes web service methods.  This operation should not be used directly\!  Please use the wizard to build flows that use this operation.\n\nInputs\:\n    xmlTemplate - The template of the soap request to make.\n    inputMap - A map used to map between template names and user-friendly names. The template names are pipe-delimited xpaths of the xmltemplate location, with a numerical element for lists.\nValue format\: A list of elements separated by the new line delimiter. Eache element hes the format\: <name>\=<new name>.\nExample\: A line in the "inputMap" could be\: "Request|Details|0|Input|x\=input0.x"\n    url - The url to Post to. \n    header_SOAPAction - The SOAPAction http header field, defined by many web services for indicating the intent of the request\n    wswAuthenticationType - The authentication type to use for the "username" and "password" input.\nDefault value\: http\nValid values\: http, ntlm, ws-security digest, ws-security text\n    WSSecuritySignRequest - Should the SOAP request be signed using WS-Security.\nDefault value\: false\nValid values true, false\n    WSSecurityEncryptRequest - Should the entire SOAP request be signed using WS-Security.\nDefault value\: false\nValid values true, false\n    WSSecurityTimestampRequest - Should the Timestamp attribute be added to the WS-Security header\nDefault value\: false\nValid values true, false\n    WSSecurityKeystore - Keystore to use for encrypting and signing requests.\n    WSSecurityKeystoreType - The type of "WSSecurityKeystore".\n    WSSecurityKeystorePassword - The password for "WSSecurityKeystore".\n    headers - The list containing the headers to use for the request separated by new line (CRLF).The header name - value pair will be separated by "\:".\nFormat\: Conforming with HTTP standard for headers (RFC 2616).\nExamples\: Accept-Language\:en\n    contentType - Value to be used in the Content-Type HTTP header. If Content-Type header is also passed in "headers" input, the "contentType" input will override the value provided in "headers".\nDefault value\: text/xml\n    characterSet - The character set for HTTP Get request and response.\nDefault value\: UTF-8\n    username - The username to use for authenticating with the web service.\nValue format\: For NTLM authentication, the required format is domain\\user.\n    password - The password to use for authenticating with the web service.\n    trustAllRoots - Enables weak security over SSL. A SSH certificate is trusted even if no trusted CA issued it.\nDefault value\: false\nValid values\: true, false\n    useCookies - Enables cookie tracking. Cookies will be stored between consecutive calls.\nDefault value\: false\nValid values\: true, false\n    usesJSON - Use JSON arrays for the SOAP Request for all Array types.\nDefault value\: false\nValid values\: true, false\n    timeout - a timeout after which the connection should be terminated or 0 for no timeout.\n    socketTimeout - The time to wait for data to be retrieved, in milliseconds. This input needs a value greater than or equal to zero. A "socketTimeout" value of '0' represents an infinite timeout.\nDefault value\: 0\n    proxy - A proxy to use when accessing the web service.\n    proxyPort - A port on the proxy to connect to.\n    proxyUsername - A username to use when connecting to the proxy.\n    proxyPassword - A password to use when connecting to the proxy.\n    keystore - The path to the keystore to use for SSL Client Certificates when using http authentication.\n    keystorePassword - The password for the keystore when using http authentication.\n    ICONCLUDE_WSW_VERSION - This value is used internally by the operation.\n    returnXMLRequest - If this input is set to true, a new output named "rawXMLRequest" is returned from the operation which contains the text of the SOAP request that will be sent. This can be very valuable in troubleshooting.\nDefault value\: false\nValid values\: true, false\n\nResults\:\n    returnCode - This is the primary output. It contains the value 0 if the operation successfully completes and the value -1 otherwise.\n    document - Raw XML response.\n    documentStripped - Raw XML response stripped of namespaces for ease in parsing with XML XPath operations.\n    jsonStripped - Raw XML response stripped of namespaces for ease in parsing with JSON operations, input usesJSON must be set to true for this to be populated.\n    responseHeaders - The list containing the headers of the response message, separated by newline.\nFormat\: This is conforming with HTTP standard for headers (RFC 2616).\nExample\: Content-Type\: text/xml;charset\=utf-8\n              Transfer-Encoding\: chunked\n\nResponses\:\n    success - SOAP request completed successfully.\n    failure - Something went wrong.\n\nNotes\:\n1.If wswAuthenticationType\=ws-security text then this operation transmits passwords in clear-text.\n2.Any additional inputs that follow these are added by the Web Service Wizard, and they are specific to the particular web service method being called.\n3.If you add new step-level inputs with the name header_<headername>, where <headername> is the name of an html header, then that html header will be set to the given value in the HTTP request.\n4.This operation will not allow connection through secure transport layers below TLS 1.0.\n</pre>
+6a8b6279-06c6-471c-aed0-a99ddc092e14.description=<pre>\nThis subflow was created by the Web Services Wizard to invoke the GmlLatLonList operation on http\://graphical.weather.gov/xml/SOAP_server/ndfdXMLserver.php?wsdl. Note that the inputs to this flow which correspond to web service inputs are optional inputs.  This is due to the fact that web services definitions usually incorrectly indicate that too many inputs are required, and mirroring those settings in the flow would force you to enter unused values when running the flow.  The xmlTemplate input on the Invoke Method 2 step of this flow contains a template of the xml message to be sent, and the fields preceded by the comment "<\!--Optional\:-->" or "<\!--zero or more repetitions-->" are those which the web service indicates are optional; all others are indicated to be required.\n\nInputs\:\n    webserviceHost - The host that is running the web service\n    webservicePort - The port on the host running the web service\n    headers - The list containing the headers to use for the request separated by new line (CRLF).The header name - value pair will be separated by "\:".\nFormat\: Conforming with HTTP standard for headers (RFC 2616).\nExamples\: Accept-Language\:en\n    proxy - The port on the host running the web service.\n    proxyPort - A port on the proxy to connect to.\n    GmlLatLonList.featureType - The input named GmlLatLonList|featureType of the complex type\: GmlLatLonList\n    GmlLatLonList.listLatLon - The input named GmlLatLonList|listLatLon of the complex type\: GmlLatLonList\n    GmlLatLonList.requestedTime - The input named GmlLatLonList|requestedTime of the complex type\: GmlLatLonList\n    GmlLatLonList.weatherParameters.appt - The input named GmlLatLonList|weatherParameters|appt of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.conhazo - The input named GmlLatLonList|weatherParameters|conhazo of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.critfireo - The input named GmlLatLonList|weatherParameters|critfireo of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.cumw34 - The input named GmlLatLonList|weatherParameters|cumw34 of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.cumw50 - The input named GmlLatLonList|weatherParameters|cumw50 of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.cumw64 - The input named GmlLatLonList|weatherParameters|cumw64 of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.dew - The input named GmlLatLonList|weatherParameters|dew of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.dryfireo - The input named GmlLatLonList|weatherParameters|dryfireo of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.iceaccum - The input named GmlLatLonList|weatherParameters|iceaccum of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.icons - The input named GmlLatLonList|weatherParameters|icons of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.incw34 - The input named GmlLatLonList|weatherParameters|incw34 of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.incw50 - The input named GmlLatLonList|weatherParameters|incw50 of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.incw64 - The input named GmlLatLonList|weatherParameters|incw64 of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.maxt - The input named GmlLatLonList|weatherParameters|maxt of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.mint - The input named GmlLatLonList|weatherParameters|mint of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.phail - The input named GmlLatLonList|weatherParameters|phail of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.pop12 - The input named GmlLatLonList|weatherParameters|pop12 of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.prcpabv14d - The input named GmlLatLonList|weatherParameters|prcpabv14d of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.prcpabv30d - The input named GmlLatLonList|weatherParameters|prcpabv30d of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.prcpabv90d - The input named GmlLatLonList|weatherParameters|prcpabv90d of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.prcpblw14d - The input named GmlLatLonList|weatherParameters|prcpblw14d of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.prcpblw30d - The input named GmlLatLonList|weatherParameters|prcpblw30d of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.prcpblw90d - The input named GmlLatLonList|weatherParameters|prcpblw90d of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.precipa_r - The input named GmlLatLonList|weatherParameters|precipa_r of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.ptornado - The input named GmlLatLonList|weatherParameters|ptornado of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.ptotsvrtstm - The input named GmlLatLonList|weatherParameters|ptotsvrtstm of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.ptstmwinds - The input named GmlLatLonList|weatherParameters|ptstmwinds of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.pxhail - The input named GmlLatLonList|weatherParameters|pxhail of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.pxtornado - The input named GmlLatLonList|weatherParameters|pxtornado of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.pxtotsvrtstm - The input named GmlLatLonList|weatherParameters|pxtotsvrtstm of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.pxtstmwinds - The input named GmlLatLonList|weatherParameters|pxtstmwinds of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.qpf - The input named GmlLatLonList|weatherParameters|qpf of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.rh - The input named GmlLatLonList|weatherParameters|rh of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.sky - The input named GmlLatLonList|weatherParameters|sky of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.sky_r - The input named GmlLatLonList|weatherParameters|sky_r of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.snow - The input named GmlLatLonList|weatherParameters|snow of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.td_r - The input named GmlLatLonList|weatherParameters|td_r of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.temp - The input named GmlLatLonList|weatherParameters|temp of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.temp_r - The input named GmlLatLonList|weatherParameters|temp_r of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.tmpabv14d - The input named GmlLatLonList|weatherParameters|tmpabv14d of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.tmpabv30d - The input named GmlLatLonList|weatherParameters|tmpabv30d of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.tmpabv90d - The input named GmlLatLonList|weatherParameters|tmpabv90d of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.tmpblw14d - The input named GmlLatLonList|weatherParameters|tmpblw14d of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.tmpblw30d - The input named GmlLatLonList|weatherParameters|tmpblw30d of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.tmpblw90d - The input named GmlLatLonList|weatherParameters|tmpblw90d of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.waveh - The input named GmlLatLonList|weatherParameters|waveh of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.wdir - The input named GmlLatLonList|weatherParameters|wdir of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.wdir_r - The input named GmlLatLonList|weatherParameters|wdir_r of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.wgust - The input named GmlLatLonList|weatherParameters|wgust of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.wspd - The input named GmlLatLonList|weatherParameters|wspd of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.wspd_r - The input named GmlLatLonList|weatherParameters|wspd_r of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.wwa - The input named GmlLatLonList|weatherParameters|wwa of the complex type\: GmlLatLonList|weatherParameters\n    GmlLatLonList.weatherParameters.wx - The input named GmlLatLonList|weatherParameters|wx of the complex type\: GmlLatLonList|weatherParameters\n\nResults\:\n    document - The raw XML response of the web service\n    documentStripped - The XML response of the web service stripped of namespaces\n    responseHeaders - The list containing the headers of the response message, separated by newline.\nFormat\: This is conforming with HTTP standard for headers (RFC 2616).\nExample\: Content-Type\: text/xml;charset\=utf-8\n               Transfer-Encoding\: chunkedWebServiceWizard.repo.successDesc\=The SOAP command was accepted by the web service\n    dwGmlOut - The output given by the XPath\: /Envelope/Body/GmlLatLonListResponse/dwGmlOut/text()\n\nResponses\:\n    success - The SOAP command was accepted by the web service\n    failure - Something went wrong while making the SOAP request\n</pre>
+]]></descriptionCdata>
+  <annotation>6a8b6279-06c6-471c-aed0-a99ddc092e14.description</annotation>
+  <name>GmlLatLonList</name>
+  <categories/>
+  <inputs>
+    <staticBinding id="a743d6f1-229b-43e3-a6af-1704ed9cafe3">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>webserviceHost</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>${SP_Us_Weather_Services_WebService_Host}</value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="6e8b5442-e50f-4494-9477-3b41c37803ed">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>webservicePort</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>${SP_Us_Weather_Services_WebService_Port}</value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="1661a1e5-f214-42aa-b340-940ccd088608">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>headers</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="d02cd3c4-4fdc-4990-9822-6c72f1e6829f">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>proxy</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>${SP_Us_Weather_Services_Proxy_Host}</value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="1c71ec22-0f6c-44ff-81aa-5d9272f82088">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>true</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>proxyPort</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value>${SP_Us_Weather_Services_Proxy_Port}</value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="b42efe82-28f7-4868-87a7-34826255fc23">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.featureType</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="d4f33a71-5352-4493-9e2f-e98aebf0b765">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.listLatLon</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="a4db6b1c-78e2-4874-b2b2-3129e568294c">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.requestedTime</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="557bad5e-acf9-4a36-8375-6b4168887442">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.appt</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="824e3422-55ac-439a-9cd8-94723ea1a07a">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.conhazo</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="9b6f383b-54ff-4ec8-bcb6-4a7cf27a7192">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.critfireo</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="899b87f7-7ecd-4dc6-8a0a-12b710c07171">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.cumw34</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="2db46cf1-5fa4-4180-8d78-51b952ea0c35">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.cumw50</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="3a254616-d0d3-44f9-a89b-609d033ed151">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.cumw64</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="12da25d7-e27b-4739-aab0-ea7fe56cd7af">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.dew</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="d7b5bc99-404c-4ca0-8de6-9354aed59742">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.dryfireo</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="6248e281-86ac-4c47-a405-13bc4a160a7c">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.iceaccum</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="61f606f2-7e9d-4d52-9f8a-1ce1bb8d827f">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.icons</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="1959595c-0ab4-41dd-a8b5-cf54a8683008">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.incw34</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="eca88005-675d-4955-bd66-0821a9109e93">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.incw50</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="75767d35-64b5-47bb-af2e-d8af3ae9e850">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.incw64</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="749f6c3b-bf62-4a6d-86f4-b779a7517ebc">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.maxt</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="2d66f285-7ead-4eea-a959-df9c1141f752">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.mint</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="69fb14d0-a642-4ea8-9053-5a0ef13d9c3e">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.phail</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="82e17927-ee7c-4f6f-b17c-e5708d81b76b">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.pop12</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="fbe64f7b-038f-4a28-81e9-bfe94efc8228">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.prcpabv14d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="e81e6653-6184-499a-9e9b-9abbec572548">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.prcpabv30d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="ba3e8315-a261-4144-b81f-37087285fb4e">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.prcpabv90d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="518bb61c-c34b-4970-9795-fd60c91b7e6f">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.prcpblw14d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="ff00f42f-59af-4c0c-8f5f-dfd6ef4e8174">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.prcpblw30d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="1d4eeaac-089a-41c9-931a-3af6170f7f86">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.prcpblw90d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="da274f90-de8e-4c46-9831-a1a6530e1f30">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.precipa_r</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="82705c6d-d0fb-4163-8fab-431589510f63">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.ptornado</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="872a7318-3cd5-45de-9dd8-4deae4a2c070">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.ptotsvrtstm</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="a8025352-5159-43f7-a238-f06d72f9db78">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.ptstmwinds</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="70f5178f-6238-42c7-963f-b6ff2e638bde">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.pxhail</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="3b362a6c-5078-4e39-90bd-5ee09fbe6040">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.pxtornado</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="c1ba0eb5-3cd3-4b73-8f0c-dbda5992c853">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.pxtotsvrtstm</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="d51df5f8-5e91-49d9-8df2-c04dd1501e19">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.pxtstmwinds</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="d85a0624-702b-41f3-a049-eedd11ad7879">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.qpf</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="ec6d388d-6f95-49b3-9049-86fb759f260c">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.rh</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="887cce10-69fa-4865-9f9a-fa4a918a60f5">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.sky</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="c226ddca-03cd-4abd-8d97-296218d3c8d2">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.sky_r</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="417c64c5-7c98-4509-b773-48b609de3672">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.snow</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="2b3d5d25-c6d1-482d-8296-de02a53867bb">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.td_r</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="a9c97bdf-b5c1-4649-98fc-3da4110368b1">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.temp</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="9c545f95-4369-4869-9e64-9bb8a910fcdc">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.temp_r</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="31f592d6-37af-407e-813c-cd2232815c91">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.tmpabv14d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="d1f78bf6-a9c2-4854-90c0-65a0b3c124e1">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.tmpabv30d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="c02b1d6f-5104-4259-bf0e-474cc2c036cd">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.tmpabv90d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="111dc834-4c89-41b3-8136-94a1231a8f25">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.tmpblw14d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="970aa5af-1334-45d2-acc3-e3741236de29">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.tmpblw30d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="b2e3c44e-ac6b-4112-8f12-caee7116b7ba">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.tmpblw90d</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="a61f4ef7-1dc7-4b61-8ea6-c021041801f4">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.waveh</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="f45a1577-f1c6-4bab-aab4-35d39f7cd86e">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.wdir</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="2a2cd20c-d511-4bd5-8839-68e71f523de5">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.wdir_r</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="86474a49-4a9f-4c5f-a3a5-4b3b53df42bd">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.wgust</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="4dadc933-ed0d-4d35-b87e-40ae56c9bd8a">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.wspd</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="0b541b6e-c8c0-4298-bbcc-ea59b637d44b">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.wspd_r</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="50b2c856-0250-4ad0-870a-d62459fda336">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.wwa</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+    <staticBinding id="87f43d25-5dec-45f1-9c54-728fe26ab3fd">
+      <annotation></annotation>
+      <assignFromContext>true</assignFromContext>
+      <assignToContext>true</assignToContext>
+      <inputType>STRING</inputType>
+      <isList>false</isList>
+      <required>false</required>
+      <isPersisted>false</isPersisted>
+      <inputSymbol>GmlLatLonList.weatherParameters.wx</inputSymbol>
+      <listDelimiter>,</listDelimiter>
+      <value></value>
+      <record>false</record>
+    </staticBinding>
+  </inputs>
+  <possibleResponses>
+    <opResponse id="348592fa-9782-4fab-b174-f5f62667f00b">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="2aa7d660-ac1f-40d8-b21c-10d9eeb0d25c">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>false</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <availableResultExpressions/>
+  <resultExpression id="ac75de83-43f5-4080-895f-bcde16ebf29e">
+    <annotation></annotation>
+    <name>document</name>
+    <fieldName>document</fieldName>
+    <sourceType>RAWRESULT</sourceType>
+    <filters/>
+  </resultExpression>
+  <iconSpec id="70a28fbb-5120-4ff8-9fa8-2ca941cda0d0">
+    <baseIcon>flow.png</baseIcon>
+    <basePath>System</basePath>
+    <readOnly>false</readOnly>
+    <layers/>
+  </iconSpec>
+  <callouts/>
+  <checkPointFlow>false</checkPointFlow>
+  <compatibleRuntimeContext>false</compatibleRuntimeContext>
+  <historyCheckPointFlow>false</historyCheckPointFlow>
+  <steps>
+    <step id="63c2e96a-3a4d-43c0-867b-eb080b13ae80">
+      <annotation>6a8b6279-06c6-471c-aed0-a99ddc092e14.63c2e96a-3a4d-43c0-867b-eb080b13ae80.description</annotation>
+      <name>Invoke Method 2</name>
+      <bounds>
+        <x>0.0</x>
+        <y>0.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>true</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>false</checkPointStep>
+      <historyCheckPointStep>false</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <resultContextKey>Invoke Method 2</resultContextKey>
+      <userPrompt></userPrompt>
+      <bindings>
+        <staticBinding id="7a577ef5-b15f-4fc2-a1c2-9ef35e4dd881">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>url</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>https://${webserviceHost}:${webservicePort}/xml/SOAP_server/ndfdXMLserver.php</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="c9e56f10-4ad4-4494-b71e-f0f96709d288">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>xmlTemplate</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>&lt;soapenv:Envelope xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:ndf=&quot;https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl&quot;&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;ndf:GmlLatLonList soapenv:encodingStyle=&quot;http://schemas.xmlsoap.org/soap/encoding/&quot;&gt;
+         &lt;listLatLon xsi:type=&quot;xsd:string&quot;&gt;?&lt;/listLatLon&gt;
+         &lt;requestedTime xsi:type=&quot;xsd:dateTime&quot;&gt;?&lt;/requestedTime&gt;
+         &lt;featureType xsi:type=&quot;xsd:string&quot;&gt;?&lt;/featureType&gt;
+         &lt;weatherParameters xsi:type=&quot;ndf:weatherParametersType&quot;&gt;
+            &lt;!--You may enter the following 53 items in any order--&gt;
+            &lt;maxt xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/maxt&gt;
+            &lt;mint xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/mint&gt;
+            &lt;temp xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/temp&gt;
+            &lt;dew xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/dew&gt;
+            &lt;pop12 xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/pop12&gt;
+            &lt;qpf xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/qpf&gt;
+            &lt;sky xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/sky&gt;
+            &lt;snow xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/snow&gt;
+            &lt;wspd xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/wspd&gt;
+            &lt;wdir xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/wdir&gt;
+            &lt;wx xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/wx&gt;
+            &lt;waveh xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/waveh&gt;
+            &lt;icons xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/icons&gt;
+            &lt;rh xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/rh&gt;
+            &lt;appt xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/appt&gt;
+            &lt;incw34 xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/incw34&gt;
+            &lt;incw50 xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/incw50&gt;
+            &lt;incw64 xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/incw64&gt;
+            &lt;cumw34 xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/cumw34&gt;
+            &lt;cumw50 xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/cumw50&gt;
+            &lt;cumw64 xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/cumw64&gt;
+            &lt;critfireo xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/critfireo&gt;
+            &lt;dryfireo xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/dryfireo&gt;
+            &lt;conhazo xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/conhazo&gt;
+            &lt;ptornado xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/ptornado&gt;
+            &lt;phail xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/phail&gt;
+            &lt;ptstmwinds xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/ptstmwinds&gt;
+            &lt;pxtornado xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/pxtornado&gt;
+            &lt;pxhail xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/pxhail&gt;
+            &lt;pxtstmwinds xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/pxtstmwinds&gt;
+            &lt;ptotsvrtstm xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/ptotsvrtstm&gt;
+            &lt;pxtotsvrtstm xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/pxtotsvrtstm&gt;
+            &lt;tmpabv14d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/tmpabv14d&gt;
+            &lt;tmpblw14d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/tmpblw14d&gt;
+            &lt;tmpabv30d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/tmpabv30d&gt;
+            &lt;tmpblw30d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/tmpblw30d&gt;
+            &lt;tmpabv90d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/tmpabv90d&gt;
+            &lt;tmpblw90d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/tmpblw90d&gt;
+            &lt;prcpabv14d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/prcpabv14d&gt;
+            &lt;prcpblw14d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/prcpblw14d&gt;
+            &lt;prcpabv30d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/prcpabv30d&gt;
+            &lt;prcpblw30d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/prcpblw30d&gt;
+            &lt;prcpabv90d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/prcpabv90d&gt;
+            &lt;prcpblw90d xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/prcpblw90d&gt;
+            &lt;precipa_r xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/precipa_r&gt;
+            &lt;sky_r xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/sky_r&gt;
+            &lt;temp_r xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/temp_r&gt;
+            &lt;td_r xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/td_r&gt;
+            &lt;wdir_r xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/wdir_r&gt;
+            &lt;wspd_r xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/wspd_r&gt;
+            &lt;wwa xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/wwa&gt;
+            &lt;wgust xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/wgust&gt;
+            &lt;iceaccum xsi:type=&quot;xsd:boolean&quot;&gt;?&lt;/iceaccum&gt;
+         &lt;/weatherParameters&gt;
+      &lt;/ndf:GmlLatLonList&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="a88323b6-7de3-4be8-a0a5-58c645ee1788">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>header_SOAPAction</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl#GmlLatLonList</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="40ea7cd5-c235-46c1-9e93-93effaf43e45">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>inputMap</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>GmlLatLonList|featureType=GmlLatLonList.featureType
+GmlLatLonList|listLatLon=GmlLatLonList.listLatLon
+GmlLatLonList|requestedTime=GmlLatLonList.requestedTime
+GmlLatLonList|weatherParameters|appt=GmlLatLonList.weatherParameters.appt
+GmlLatLonList|weatherParameters|conhazo=GmlLatLonList.weatherParameters.conhazo
+GmlLatLonList|weatherParameters|critfireo=GmlLatLonList.weatherParameters.critfireo
+GmlLatLonList|weatherParameters|cumw34=GmlLatLonList.weatherParameters.cumw34
+GmlLatLonList|weatherParameters|cumw50=GmlLatLonList.weatherParameters.cumw50
+GmlLatLonList|weatherParameters|cumw64=GmlLatLonList.weatherParameters.cumw64
+GmlLatLonList|weatherParameters|dew=GmlLatLonList.weatherParameters.dew
+GmlLatLonList|weatherParameters|dryfireo=GmlLatLonList.weatherParameters.dryfireo
+GmlLatLonList|weatherParameters|iceaccum=GmlLatLonList.weatherParameters.iceaccum
+GmlLatLonList|weatherParameters|icons=GmlLatLonList.weatherParameters.icons
+GmlLatLonList|weatherParameters|incw34=GmlLatLonList.weatherParameters.incw34
+GmlLatLonList|weatherParameters|incw50=GmlLatLonList.weatherParameters.incw50
+GmlLatLonList|weatherParameters|incw64=GmlLatLonList.weatherParameters.incw64
+GmlLatLonList|weatherParameters|maxt=GmlLatLonList.weatherParameters.maxt
+GmlLatLonList|weatherParameters|mint=GmlLatLonList.weatherParameters.mint
+GmlLatLonList|weatherParameters|phail=GmlLatLonList.weatherParameters.phail
+GmlLatLonList|weatherParameters|pop12=GmlLatLonList.weatherParameters.pop12
+GmlLatLonList|weatherParameters|prcpabv14d=GmlLatLonList.weatherParameters.prcpabv14d
+GmlLatLonList|weatherParameters|prcpabv30d=GmlLatLonList.weatherParameters.prcpabv30d
+GmlLatLonList|weatherParameters|prcpabv90d=GmlLatLonList.weatherParameters.prcpabv90d
+GmlLatLonList|weatherParameters|prcpblw14d=GmlLatLonList.weatherParameters.prcpblw14d
+GmlLatLonList|weatherParameters|prcpblw30d=GmlLatLonList.weatherParameters.prcpblw30d
+GmlLatLonList|weatherParameters|prcpblw90d=GmlLatLonList.weatherParameters.prcpblw90d
+GmlLatLonList|weatherParameters|precipa_r=GmlLatLonList.weatherParameters.precipa_r
+GmlLatLonList|weatherParameters|ptornado=GmlLatLonList.weatherParameters.ptornado
+GmlLatLonList|weatherParameters|ptotsvrtstm=GmlLatLonList.weatherParameters.ptotsvrtstm
+GmlLatLonList|weatherParameters|ptstmwinds=GmlLatLonList.weatherParameters.ptstmwinds
+GmlLatLonList|weatherParameters|pxhail=GmlLatLonList.weatherParameters.pxhail
+GmlLatLonList|weatherParameters|pxtornado=GmlLatLonList.weatherParameters.pxtornado
+GmlLatLonList|weatherParameters|pxtotsvrtstm=GmlLatLonList.weatherParameters.pxtotsvrtstm
+GmlLatLonList|weatherParameters|pxtstmwinds=GmlLatLonList.weatherParameters.pxtstmwinds
+GmlLatLonList|weatherParameters|qpf=GmlLatLonList.weatherParameters.qpf
+GmlLatLonList|weatherParameters|rh=GmlLatLonList.weatherParameters.rh
+GmlLatLonList|weatherParameters|sky=GmlLatLonList.weatherParameters.sky
+GmlLatLonList|weatherParameters|sky_r=GmlLatLonList.weatherParameters.sky_r
+GmlLatLonList|weatherParameters|snow=GmlLatLonList.weatherParameters.snow
+GmlLatLonList|weatherParameters|td_r=GmlLatLonList.weatherParameters.td_r
+GmlLatLonList|weatherParameters|temp=GmlLatLonList.weatherParameters.temp
+GmlLatLonList|weatherParameters|temp_r=GmlLatLonList.weatherParameters.temp_r
+GmlLatLonList|weatherParameters|tmpabv14d=GmlLatLonList.weatherParameters.tmpabv14d
+GmlLatLonList|weatherParameters|tmpabv30d=GmlLatLonList.weatherParameters.tmpabv30d
+GmlLatLonList|weatherParameters|tmpabv90d=GmlLatLonList.weatherParameters.tmpabv90d
+GmlLatLonList|weatherParameters|tmpblw14d=GmlLatLonList.weatherParameters.tmpblw14d
+GmlLatLonList|weatherParameters|tmpblw30d=GmlLatLonList.weatherParameters.tmpblw30d
+GmlLatLonList|weatherParameters|tmpblw90d=GmlLatLonList.weatherParameters.tmpblw90d
+GmlLatLonList|weatherParameters|waveh=GmlLatLonList.weatherParameters.waveh
+GmlLatLonList|weatherParameters|wdir=GmlLatLonList.weatherParameters.wdir
+GmlLatLonList|weatherParameters|wdir_r=GmlLatLonList.weatherParameters.wdir_r
+GmlLatLonList|weatherParameters|wgust=GmlLatLonList.weatherParameters.wgust
+GmlLatLonList|weatherParameters|wspd=GmlLatLonList.weatherParameters.wspd
+GmlLatLonList|weatherParameters|wspd_r=GmlLatLonList.weatherParameters.wspd_r
+GmlLatLonList|weatherParameters|wwa=GmlLatLonList.weatherParameters.wwa
+GmlLatLonList|weatherParameters|wx=GmlLatLonList.weatherParameters.wx</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="e18bae38-537b-422d-baee-74d7e6bea376">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>usesJSON</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="5e302b6d-54b3-4f83-91a3-be386e9852a5">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxy</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${proxy}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="077eeb88-008d-4bf5-9150-3b0cae530d47">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxyPort</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>${proxyPort}</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="d518235c-162f-4e1c-a320-1de102e534a8">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>wswAuthenticationType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>http</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="883aa046-72a0-4f27-bce1-63f88957825e">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecuritySignRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="2ee0b14b-3105-488c-a705-723b87936b23">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityEncryptRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="4f2afd11-9c4d-40bc-b893-b7f4d006fbe8">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityTimestampRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="4fe463b2-3342-453e-b3d7-caf848cc263f">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityKeystore</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="792facb4-ad04-4def-90c8-f12c6bc70362">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityKeystoreType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="5bed94e1-a064-4241-846d-a3f42ebc1015">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>WSSecurityKeystorePassword</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}tFQ2pnWYKQCGLnn/5LPzoA==</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="2a221a2d-1623-455f-97e6-72cafbaa05f2">
+          <fromContextKey>headers</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>headers</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="78b28fde-ea0e-41ee-9397-2a58d457777e">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>contentType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>text/xml</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="af848f38-f365-4152-b872-997bd3cfb083">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>characterSet</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>UTF-8</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ccc8adfe-1ec4-4b5d-805a-19636daa632e">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>username</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="5a600a10-00bf-4fa0-996f-4903ff1c33ee">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>password</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}tFQ2pnWYKQCGLnn/5LPzoA==</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="fc7c18a5-0219-4af1-b6d5-1467c1568145">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>trustAllRoots</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="215a6b13-2e6c-4f40-a5e3-ccedfe95e12f">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>useCookies</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>true</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="05e9fc3d-d538-4f27-a962-4701ee4a0a2d">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>timeout</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="843b7b78-ce39-4742-b324-57e88e2a7e24">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>socketTimeout</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="b09dcf0b-96f8-4b10-87ea-85cf34094adb">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxyUsername</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="f1ceb40b-7ff3-4891-b613-d8fae24d11c6">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>proxyPassword</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}tFQ2pnWYKQCGLnn/5LPzoA==</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="1bd73537-d6ba-4077-a9c5-2741a2cba755">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>keystore</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="43b6d00a-59da-46b7-9e91-2b30248d0103">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>ENCRYPTED</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>keystorePassword</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>{OBFUSCATED}tFQ2pnWYKQCGLnn/5LPzoA==</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="276ad74a-74bb-402b-a45e-760d5019c79a">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>ICONCLUDE_WSW_VERSION</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>2</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="8ec68842-aa3a-4b7e-a75f-6b42dc7dbcf0">
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>returnXMLRequest</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>false</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="77b87c9b-47e1-4052-9b3a-602e68e95833">
+          <fromContextKey>GmlLatLonList.featureType</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.featureType</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="1e74319f-7647-42c6-9ab3-a56a9e2c17e3">
+          <fromContextKey>GmlLatLonList.listLatLon</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.listLatLon</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="d49227c9-a71b-4216-95c6-586e923e72fd">
+          <fromContextKey>GmlLatLonList.requestedTime</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.requestedTime</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="afb5e365-1be8-4468-9bb9-e2c204cd1d84">
+          <fromContextKey>GmlLatLonList.weatherParameters.appt</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.appt</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ee82af8a-e955-4180-9d90-864f375ade5f">
+          <fromContextKey>GmlLatLonList.weatherParameters.conhazo</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.conhazo</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="2986f66a-7d7f-4ca6-96af-398ad1eea60c">
+          <fromContextKey>GmlLatLonList.weatherParameters.critfireo</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.critfireo</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="7223e5fc-8ee1-4496-95df-20336b7bdf53">
+          <fromContextKey>GmlLatLonList.weatherParameters.cumw34</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.cumw34</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="6fd1e82c-8285-47cc-8ccc-dcd11bc035d7">
+          <fromContextKey>GmlLatLonList.weatherParameters.cumw50</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.cumw50</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="fb32af2d-55c2-467d-9a88-571ea6e9897f">
+          <fromContextKey>GmlLatLonList.weatherParameters.cumw64</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.cumw64</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="cf9a5c39-2573-45ba-9dce-4f1b5983ae84">
+          <fromContextKey>GmlLatLonList.weatherParameters.dew</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.dew</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="248b18fe-eed1-4f38-87da-6b817df53cfa">
+          <fromContextKey>GmlLatLonList.weatherParameters.dryfireo</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.dryfireo</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="4993376c-ff8b-4f8f-83d8-4e555c841114">
+          <fromContextKey>GmlLatLonList.weatherParameters.iceaccum</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.iceaccum</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="231e1b5d-6d11-4288-bd7c-62bf7c64540f">
+          <fromContextKey>GmlLatLonList.weatherParameters.icons</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.icons</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="dca5d182-33ad-4bb0-81b5-0fc17bf83260">
+          <fromContextKey>GmlLatLonList.weatherParameters.incw34</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.incw34</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="2540cb3b-1588-4b96-b8f4-3bebdd1feec3">
+          <fromContextKey>GmlLatLonList.weatherParameters.incw50</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.incw50</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="70efcc49-5174-4310-9354-001f2cd1096e">
+          <fromContextKey>GmlLatLonList.weatherParameters.incw64</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.incw64</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="f88a594f-e4e0-4534-9bc2-c4a88c2dd0e4">
+          <fromContextKey>GmlLatLonList.weatherParameters.maxt</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.maxt</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="558dfce3-cfc4-46f7-8e15-220990273aa6">
+          <fromContextKey>GmlLatLonList.weatherParameters.mint</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.mint</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="aee4138b-fc69-4f52-8994-b875d2bd22fc">
+          <fromContextKey>GmlLatLonList.weatherParameters.phail</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.phail</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="45f3cb34-94c4-4046-803e-399283ccda94">
+          <fromContextKey>GmlLatLonList.weatherParameters.pop12</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.pop12</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="fce4975f-6ec2-436d-8b0e-18d0d74083da">
+          <fromContextKey>GmlLatLonList.weatherParameters.prcpabv14d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.prcpabv14d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="4606ebd8-667d-4425-a25e-18cd443e3cfa">
+          <fromContextKey>GmlLatLonList.weatherParameters.prcpabv30d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.prcpabv30d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ae22befd-e9ce-4f2a-8753-31c89cec7116">
+          <fromContextKey>GmlLatLonList.weatherParameters.prcpabv90d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.prcpabv90d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="09176675-20e4-4c1d-b82d-660b08872759">
+          <fromContextKey>GmlLatLonList.weatherParameters.prcpblw14d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.prcpblw14d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="d21be5d8-cfca-474d-b0f2-7ecb2a175fd2">
+          <fromContextKey>GmlLatLonList.weatherParameters.prcpblw30d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.prcpblw30d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="1be9e05a-184b-4b1c-a03d-5a8c649e99ab">
+          <fromContextKey>GmlLatLonList.weatherParameters.prcpblw90d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.prcpblw90d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="2d5d13ed-3e33-45ea-9997-5db2f3a41417">
+          <fromContextKey>GmlLatLonList.weatherParameters.precipa_r</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.precipa_r</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="d2ac4153-6af6-48e0-8a0d-b3a4b27d5e4a">
+          <fromContextKey>GmlLatLonList.weatherParameters.ptornado</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.ptornado</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ba4add51-187f-47e2-950f-440ef380b84f">
+          <fromContextKey>GmlLatLonList.weatherParameters.ptotsvrtstm</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.ptotsvrtstm</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="1519af30-5b3e-4e98-a6b4-13da6460bcec">
+          <fromContextKey>GmlLatLonList.weatherParameters.ptstmwinds</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.ptstmwinds</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="8336a96a-f934-4e24-8933-5d313d7a9f49">
+          <fromContextKey>GmlLatLonList.weatherParameters.pxhail</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.pxhail</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="2f37017a-e908-4ca0-a3eb-f902863d3b5a">
+          <fromContextKey>GmlLatLonList.weatherParameters.pxtornado</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.pxtornado</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="67de72d3-4540-4423-897a-d71035c182ae">
+          <fromContextKey>GmlLatLonList.weatherParameters.pxtotsvrtstm</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.pxtotsvrtstm</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="1ca56433-488f-49ba-adf0-d96d12821845">
+          <fromContextKey>GmlLatLonList.weatherParameters.pxtstmwinds</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.pxtstmwinds</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="30b192de-c6e4-4bac-b583-46a15e463ff4">
+          <fromContextKey>GmlLatLonList.weatherParameters.qpf</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.qpf</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="4e4b9de9-6d5b-4987-ba62-7f17f60373f5">
+          <fromContextKey>GmlLatLonList.weatherParameters.rh</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.rh</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="67f7c81a-429d-4a1f-9d98-ad2a5322b94b">
+          <fromContextKey>GmlLatLonList.weatherParameters.sky</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.sky</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="2ef85963-c639-4f8c-b3d2-b68769e165ca">
+          <fromContextKey>GmlLatLonList.weatherParameters.sky_r</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.sky_r</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="878897d6-5727-4873-8286-5b55412d1da1">
+          <fromContextKey>GmlLatLonList.weatherParameters.snow</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.snow</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="78666b84-cb76-4d0c-9de9-b015bf03f9c0">
+          <fromContextKey>GmlLatLonList.weatherParameters.td_r</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.td_r</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="0d65c91d-23ca-497e-a750-2f158492b72c">
+          <fromContextKey>GmlLatLonList.weatherParameters.temp</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.temp</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="5ddeaa03-88d1-4e3c-85f6-51f410036396">
+          <fromContextKey>GmlLatLonList.weatherParameters.temp_r</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.temp_r</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="14a1691d-3d9b-40b2-95af-f07be531d165">
+          <fromContextKey>GmlLatLonList.weatherParameters.tmpabv14d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.tmpabv14d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="7abcfa86-ee86-4abf-bfeb-530c0882e2e3">
+          <fromContextKey>GmlLatLonList.weatherParameters.tmpabv30d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.tmpabv30d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="66c70418-3493-4256-9670-1674b3cddcac">
+          <fromContextKey>GmlLatLonList.weatherParameters.tmpabv90d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.tmpabv90d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="da1c859d-ba20-4a65-9497-58de08aa7964">
+          <fromContextKey>GmlLatLonList.weatherParameters.tmpblw14d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.tmpblw14d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="6c2e1c30-8812-46d3-b838-27a7d10f7d2f">
+          <fromContextKey>GmlLatLonList.weatherParameters.tmpblw30d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.tmpblw30d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="70c23d41-d0fa-4a22-aadf-da227a2c4a37">
+          <fromContextKey>GmlLatLonList.weatherParameters.tmpblw90d</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.tmpblw90d</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="c869cb4a-260f-477d-adef-1d2ac9e11f74">
+          <fromContextKey>GmlLatLonList.weatherParameters.waveh</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.waveh</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="c3b9287c-461a-47ef-85ca-1445794779d5">
+          <fromContextKey>GmlLatLonList.weatherParameters.wdir</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.wdir</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ab528a10-789d-44b2-a0f7-bdf7ac545829">
+          <fromContextKey>GmlLatLonList.weatherParameters.wdir_r</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.wdir_r</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="691b5d2a-4155-4cf2-8abd-519e5c4633ad">
+          <fromContextKey>GmlLatLonList.weatherParameters.wgust</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.wgust</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="d211ff67-83f3-498b-8edd-a38d889c931f">
+          <fromContextKey>GmlLatLonList.weatherParameters.wspd</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.wspd</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="ffe14631-8e79-4247-b61a-11ca2b07cc6d">
+          <fromContextKey>GmlLatLonList.weatherParameters.wspd_r</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.wspd_r</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="fad6dfa6-918d-4a80-8c52-318eb52a2f14">
+          <fromContextKey>GmlLatLonList.weatherParameters.wwa</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.wwa</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="77c7c7e4-806a-4b58-9738-c77e3264310b">
+          <fromContextKey>GmlLatLonList.weatherParameters.wx</fromContextKey>
+          <assignFromContext>true</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>false</required>
+          <isPersisted>false</isPersisted>
+          <inputSymbol>GmlLatLonList.weatherParameters.wx</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value></value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+      <transitions>
+        <transition id="00554012-d0d0-4f0f-affb-e7d7aca36e35">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>31fd5300-6253-432a-8d80-39c29f223c49</refId>
+          </destination>
+          <source>
+            <refId>63c2e96a-3a4d-43c0-867b-eb080b13ae80</refId>
+          </source>
+          <positions/>
+        </transition>
+        <transition id="c66b4486-fab8-40c1-9a3c-0d1d8f866472">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>35cd1c46-85a0-4ea0-9ba0-e1c8e920330c</refId>
+          </destination>
+          <source>
+            <refId>63c2e96a-3a4d-43c0-867b-eb080b13ae80</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <opRef>
+        <refId>962ffbf8-4105-46bb-8c71-84f037c4de61</refId>
+      </opRef>
+      <assignments>
+        <flowVariableAssignment id="44f83322-555b-4a1f-a43c-a241c0d259da">
+          <annotation></annotation>
+          <name>document</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>document</contextKey>
+          <expression id="bf6104ca-2d37-44c0-b957-619bdd5599e3">
+            <annotation></annotation>
+            <name>document</name>
+            <fieldName>document</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="3c7683fd-96ef-417e-8386-289f1b3bdecb">
+          <annotation></annotation>
+          <name>documentStripped</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>documentStripped</contextKey>
+          <expression id="1b182f7a-10e7-46c8-8c60-8ce05b658386">
+            <annotation></annotation>
+            <name>documentStripped</name>
+            <fieldName>documentStripped</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="845115b1-42d1-4fff-a92f-db5dc5a70312">
+          <annotation></annotation>
+          <name>responseHeaders</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>responseHeaders</contextKey>
+          <expression id="d8f6c3e3-20f2-4aff-80e8-100c40344f4f">
+            <annotation></annotation>
+            <name>responseHeaders</name>
+            <fieldName>responseHeaders</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters/>
+          </expression>
+        </flowVariableAssignment>
+        <flowVariableAssignment id="204eff30-76ef-48d7-9c6d-81bff251c091">
+          <annotation></annotation>
+          <name>dwGmlOut</name>
+          <action>OVERWRITE</action>
+          <assignmentTargetType>FLOW_OUTPUT_FIELD</assignmentTargetType>
+          <contextKey>dwGmlOut</contextKey>
+          <expression id="c881d400-027a-4599-83a7-afda3fc1db75">
+            <annotation></annotation>
+            <name>documentStripped</name>
+            <fieldName>documentStripped</fieldName>
+            <sourceType>RAWRESULT</sourceType>
+            <filters>
+              <xpathFilter id="4118ba78-8c60-484f-af4a-f3b3fa9a7341">
+                <annotation></annotation>
+                <name></name>
+                <xpathQuery>/Envelope/Body/GmlLatLonListResponse/dwGmlOut/text()</xpathQuery>
+              </xpathFilter>
+            </filters>
+          </expression>
+        </flowVariableAssignment>
+      </assignments>
+      <throttleSize>0</throttleSize>
+    </step>
+    <returnStep id="31fd5300-6253-432a-8d80-39c29f223c49">
+      <annotation></annotation>
+      <name>RESOLVED : success</name>
+      <bounds>
+        <x>0.0</x>
+        <y>150.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>true</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>false</checkPointStep>
+      <historyCheckPointStep>false</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <resultContextKey>RESOLVED : success</resultContextKey>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="0dfad592-4375-4570-bfcd-4d65c38bf996">
+          <annotation></annotation>
+          <name>success</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>success</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>31fd5300-6253-432a-8d80-39c29f223c49</refId>
+          </destination>
+          <source>
+            <refId>31fd5300-6253-432a-8d80-39c29f223c49</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>RESOLVED</returnStepType>
+      <assignments/>
+    </returnStep>
+    <returnStep id="35cd1c46-85a0-4ea0-9ba0-e1c8e920330c">
+      <annotation></annotation>
+      <name>ERROR : failure</name>
+      <bounds>
+        <x>150.0</x>
+        <y>150.0</y>
+      </bounds>
+      <layer>-1</layer>
+      <hideInbound>false</hideInbound>
+      <addResultToRunContext>false</addResultToRunContext>
+      <isCriticalStep>false</isCriticalStep>
+      <isNonBlocking>false</isNonBlocking>
+      <isParallelStep>false</isParallelStep>
+      <isSingleResponse>false</isSingleResponse>
+      <recordInHistory>true</recordInHistory>
+      <recordRawOutput>true</recordRawOutput>
+      <recordPrimaryOutput>true</recordPrimaryOutput>
+      <checkPointStep>false</checkPointStep>
+      <historyCheckPointStep>false</historyCheckPointStep>
+      <scriptResultStep>false</scriptResultStep>
+      <resultContextKey>ERROR : failure</resultContextKey>
+      <userPrompt></userPrompt>
+      <bindings/>
+      <transitions>
+        <transition id="c41552b2-b381-446c-b569-b9269af9543e">
+          <annotation></annotation>
+          <name>failure</name>
+          <command>NEXT</command>
+          <linkMode>false</linkMode>
+          <responseSymbol>failure</responseSymbol>
+          <shouldHandoff>false</shouldHandoff>
+          <transitionValue>0.0</transitionValue>
+          <destination>
+            <refId>35cd1c46-85a0-4ea0-9ba0-e1c8e920330c</refId>
+          </destination>
+          <source>
+            <refId>35cd1c46-85a0-4ea0-9ba0-e1c8e920330c</refId>
+          </source>
+          <positions/>
+        </transition>
+      </transitions>
+      <properties/>
+      <returnStepType>ERROR</returnStepType>
+      <assignments/>
+    </returnStep>
+  </steps>
+  <startSteps>63c2e96a-3a4d-43c0-867b-eb080b13ae80</startSteps>
+</flow>
